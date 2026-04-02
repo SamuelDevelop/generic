@@ -1,0 +1,41 @@
+# VSCODE
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# IntelliJ
+.idea/
+*.iml
+
+# JAVA
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.ear
+
+# MAVEN
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# SPRING BOOT
+application.properties
+application.yml
+application-*.yml
+application-*.properties
+
+# LOGS
+logs/
+*.log
+
+# AMBIENTE
+.env
+.env.*
+*.env
