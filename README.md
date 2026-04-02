@@ -6,7 +6,7 @@ To you The generic social media.
 
 ## Our mission
 
-    Ser uma rede social completamente genérica cujo objetivo é não inovar em nada, replicar tudo o que já existe e qualquer novidade que esta busque trazer já estará anteriormente em algum lugar do mundo.
+Ser uma rede social completamente genérica cujo objetivo é não inovar em nada, replicar tudo o que já existe e qualquer novidade que esta busque trazer já estará anteriormente em algum lugar do mundo.
 
 Posts genericos, likes genericos, comentarios genericos, amizades e relacionamentos genericos.
 
@@ -15,7 +15,7 @@ Posts genericos, likes genericos, comentarios genericos, amizades e relacionamen
 
 ## My stack
 
-    Indo para mais pé no chão, escolhi uma stack mais robusta para vivenciar tal tipo de experiencia.
+Indo para mais pé no chão, escolhi uma stack mais robusta para vivenciar tal tipo de experiencia.
 
 **Frontend:**
 
@@ -34,14 +34,12 @@ Posts genericos, likes genericos, comentarios genericos, amizades e relacionamen
 
 ## How to use
 
-    Não existe projeto ainda então... não tem como!
+Não existe projeto ainda então... não tem como!
 
 ## Future Plans 
 
-    Os mais Generic planos construidos aqui são:
+Os mais Generic planos construidos aqui são:
         - Hospedar tudo e usar como portifolio 
-
-
 
 <div text-align="center">
 
