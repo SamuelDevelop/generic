@@ -1,6 +1,6 @@
-# generic
+# Generic SM
 
-To you The generic social media.
+To you: The generic social media.
 
 > Atenção: Projeto com finalidade de aprendizagem, não levar a sério. Entretanto a reutilização não está permitida.
 
