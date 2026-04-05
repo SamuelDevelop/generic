@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/texto-aleatorio")
+@RequestMapping("texto-aleatorio")
 public class RandomTextController {
     
     @GetMapping
