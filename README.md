@@ -41,12 +41,9 @@ Não existe projeto ainda então... não tem como!
 Os mais Generic planos construidos aqui são:
         - Hospedar tudo e usar como portifolio 
 
-<div text-align="center">
-
-<b>SamuelDevelop | Projeto Pessoal</b>
-
-<i>2026</i>
-
+<br><br>
+<div align="center">
+    <p><b>SamuelDevelop</b> 2026 | Projeto Pessoal</p>
 </div>
 
 
