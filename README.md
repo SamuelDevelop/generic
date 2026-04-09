@@ -1,12 +1,13 @@
 # Generic SM
 
+> Atenção: Projeto pessoal e com finalidade de aprendizagem sem pretenções sérias ou de profissionalização. A reutilização deste conteúdo não é autorizada.
+
 <div align="center">
-        <img src="/assets/images/brand/logo.png">
+        <img src="/code/frontend/assets/images/brand/logo.png">
+        <br>
+        <b>To you: The generic social media.</b>
 </div>
 
-To you: The generic social media.
-
-> Atenção: Projeto com finalidade de aprendizagem, não levar a sério. Entretanto a reutilização não está permitida.
 
 ## Our mission
 
@@ -45,18 +46,15 @@ Não existe projeto ainda então... não tem como!
 Os mais Generic planos construidos aqui são:
         - Hospedar tudo e usar como portifolio 
 
-<<<<<<< HEAD
+
 <br><br>
-<div align="center">
-    <p><b>SamuelDevelop</b> 2026 | Projeto Pessoal</p>
-=======
+
 <div align="center">
 
 <b>SamuelDevelop | Projeto Pessoal</b>
 
 <i>2026</i>
 
->>>>>>> 909bbfa (brand)
 </div>
 
 

@@ -1,0 +1,17 @@
+.button{
+    color: var(--whiteColor);
+    background-color: var(--blueDarkColor);
+
+    font-weight: bold;
+    
+    cursor: pointer;
+    padding: .5rem 1rem;
+    
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+}
+
+.button:hover{
+    background-color: var(--blueColor);
+}
