@@ -1,0 +1,8 @@
+.form{
+    
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid var(--blueColor);
+    border-radius: .5rem;
+    padding: 1rem;
+}

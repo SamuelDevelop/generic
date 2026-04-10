@@ -37,6 +37,9 @@
     cursor: pointer;
 }
 
+.icones *{
+    font-size: 1.3rem;
+}
 .icones *:hover{
     color: var(--blueColor);
 }

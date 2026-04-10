@@ -1,17 +1,14 @@
+import buttonProps from "@/types/ButtonProps";
 import styles from "./Button.module.css"
 
-type buttonProps = {
-    children : React.ReactNode,
-    type : "comum" | "critico"
-}
-
-function Button({children, type} : buttonProps){
+function Button({children, type, onClick} : buttonProps){
     return (
         <button 
             className={`
                 ${type == "comum" ? styles.comum : ""}
                 ${styles.button}
-            `}  
+            `} 
+            onClick={onClick} 
         >
             {children}
         </button>

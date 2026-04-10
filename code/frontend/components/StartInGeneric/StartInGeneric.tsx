@@ -1,3 +1,4 @@
+'use client'
 import { FaRegComment, FaRegHeart, FaShare } from "react-icons/fa";
 import duneImage from "../../assets/images/dune.jpg";
 import sandImage from "../../assets/images/foto_areia.jpg";
@@ -6,8 +7,13 @@ import styles from "./StartInGeneric.module.css"
 import Image from "next/image";
 import { FaSailboat } from "react-icons/fa6";
 import { FiAlertTriangle } from "react-icons/fi";
+import { useRouter } from "next/navigation";
+
 
 function StartInGeneric(){
+
+    const router = useRouter();
+
     return (
         <section className={styles.startSection}>
             <div className={styles.textStartSection}>
@@ -16,6 +22,7 @@ function StartInGeneric(){
                 
                 <Button
                     type="comum"
+                    onClick={() => router.push("/register")}
                 >
                     Navegar
                 </Button>
