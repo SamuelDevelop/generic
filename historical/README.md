@@ -20,6 +20,6 @@ Tela *atual de login (falat sicronizar com backend)
 
 <div align="center">
 
-<p>Acompanhe o Progresso aqui.</p>
+<p>Acompanhe o Progresso aqui</p>
 
 </div>
