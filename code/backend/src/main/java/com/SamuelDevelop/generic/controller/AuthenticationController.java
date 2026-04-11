@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.SamuelDevelop.generic.domain.Users;
 import com.SamuelDevelop.generic.dto.AuthenticationDTO;
+import com.SamuelDevelop.generic.dto.LoginResponseDTO;
 import com.SamuelDevelop.generic.dto.RegisterDTO;
 import com.SamuelDevelop.generic.repostories.UserRepository;
+import com.SamuelDevelop.generic.service.TokenService;
 
 import jakarta.validation.Valid;
 
@@ -25,6 +27,9 @@ public class AuthenticationController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
+    private TokenService tokenService;
+
+    @Autowired
     private UserRepository repository;
     
     @PostMapping("/login")
@@ -32,7 +37,9 @@ public class AuthenticationController {
         var usernamePasword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = authenticationManager.authenticate(usernamePasword);
 
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((Users) auth.getPrincipal());
+
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
     @PostMapping("/register")
