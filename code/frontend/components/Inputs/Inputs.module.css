@@ -6,25 +6,24 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-
+    gap: .2rem;
     padding: .2rem;
 }
 
 .textInput{
-    width: 100%;
     box-sizing: border-box;
 
     background-color: transparent;
-    border: 1px solid var(--blueColor);
+    border: 1px solid gray;
     border-radius: .5rem;
-    padding: .2rem .5rem;
+    padding: .5rem 2rem .5rem 1rem;
 }
 
 .maintextInputArea{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
-    gap: .2rem;
+    gap: .5rem;
 }
 
 .lateral{

@@ -10,6 +10,12 @@
     outline: none;
     border: none;
     border-radius: .5rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
 }
 
 .button:hover{

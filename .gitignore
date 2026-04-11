@@ -9,6 +9,8 @@ Thumbs.db
 !.vscode/launch.json
 !.vscode/tasks.json
 
+*.code-workspace
+
 # AMBIENTE
 .env
 .env.*

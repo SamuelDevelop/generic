@@ -44,7 +44,10 @@ Não existe projeto ainda então... não tem como!
 ## Future Plans 
 
 Os mais Generic planos construidos aqui são:
-        - Hospedar tudo e usar como portifolio 
+        
+->  Hospedar tudo e usar como portifolio 
+
+> Achou os tudo muito generico? Que bom! This is the Generic Pattern
 
 
 <br><br>
