@@ -1,12 +1,17 @@
 .twoPartSection{
+
+    min-width: 60vw;
+
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    justify-content: space-between;
 
     gap: 1rem;
     box-shadow: 1px 3px 15px 5px #1d1d1d;
     border-radius: .5rem;
     overflow: hidden;
+
 }
 
 .imagePart{

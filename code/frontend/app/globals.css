@@ -46,6 +46,15 @@ p, button{
     font-size: 1.1rem;
 }
 
+a{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:hover{
+    color: var(--blueColor)
+}
+
 .allScreen{
     width: 100vw;
     height: 100vh;

@@ -11,6 +11,8 @@ function RegisterPage(){
                 >
                     <h1>Registrar-se</h1>
                     <RegisterForm />
+                    <br></br>
+                    <a href="/login">Já possui uma conta? Entrar</a>
                 </TwoPartSection>
                 
             </main>
