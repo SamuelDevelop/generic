@@ -24,6 +24,13 @@ Tela *atual de login (falat sicronizar com backend)
 
 Tela *atual de login (falat sicronizar com backend)
 
+
+### Outras páginas:
+
+    /about = Com informações sobre a Generic e o Projeto.
+    
+    /not-found = Página de páginas não encontradas
+
 <div align="center">
 
 <p>Acompanhe o Progresso aqui</p>

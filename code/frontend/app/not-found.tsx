@@ -11,7 +11,7 @@ export default function NotFound() {
     const router = useRouter();
 
   return (
-    <main className="allScreen">
+    <main className="allScreen leftedPage">
               
         <Image
             className={styles.mainImage}

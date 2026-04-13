@@ -63,3 +63,12 @@ a:hover{
     max-height: 100vh;
     box-sizing: border-box;
 }
+
+.leftedPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 2.5rem;
+    gap: 1rem;
+}
