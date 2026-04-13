@@ -1,5 +1,4 @@
 .twoPartSection{
-
     min-width: 60vw;
 
     display: flex;
@@ -11,7 +10,6 @@
     box-shadow: 1px 3px 15px 5px #1d1d1d;
     border-radius: .5rem;
     overflow: hidden;
-
 }
 
 .imagePart{

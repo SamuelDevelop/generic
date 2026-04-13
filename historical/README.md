@@ -10,11 +10,17 @@
 
 <img src="printscreens/home.jpg">
 
-Página inicial que convoca os usuários a serem Generic. Obrigado logo do next por ter aparecido na hora de tirar as prints ;)
+Página inicial que convoca os usuários a serem Generic.
 
 ### Registro:
 
 <img src="printscreens/register.jpg">
+
+Tela *atual de login (falat sicronizar com backend)
+
+### Login:
+
+<img src="printscreens/login.jpg">
 
 Tela *atual de login (falat sicronizar com backend)
 
