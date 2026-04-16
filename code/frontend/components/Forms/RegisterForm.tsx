@@ -4,6 +4,7 @@ import FormFields from "./FormFields";
 import styles from "./Forms.module.css"
 
 function RegisterForm(){
+    
     return (
         <form className={styles.form}>
             <FormFields>
