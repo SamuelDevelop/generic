@@ -40,7 +40,7 @@ function StartInGeneric(){
                 </div>
                                 
                 <Button
-                    type="comum"
+                    variant="comum"
                     onClick={() => router.push("/register")}
                 >
                     <p><FaSailboat /></p>

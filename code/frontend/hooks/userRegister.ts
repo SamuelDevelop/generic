@@ -1,3 +1,5 @@
+'use client'
+import { requestRegister } from "@/services/register";
 import { useState } from "react";
 
 export function useRegister(){
@@ -16,7 +18,7 @@ export function useRegister(){
             return "Senha precisa ter no mínimo 6 caracteres";
         }
 
-        if(!email.includes("@") || email.includes(".")){
+        if(!email.includes("@") || !email.includes(".")){
             return "Digite um email válido";
         }
 
@@ -24,6 +26,37 @@ export function useRegister(){
     }
 
     async function submit() {
-        
+        const hasErroValidacao = validar();
+
+        if(hasErroValidacao != ""){
+            setErro(hasErroValidacao);
+
+            return false;
+        }
+
+        try {
+            await requestRegister(
+                {
+                    nome : nome,
+                    email : email,
+                    role : "USER",
+                    password : senha
+                }
+            )
+        } catch {
+            setErro("Problema ao registrar usuário");
+            return false;
+        }
     }
+
+    return {
+        nome,
+        setNome,
+        email,
+        setEmail,
+        senha,
+        setSenha,
+        erro,
+        submit
+    };
 }

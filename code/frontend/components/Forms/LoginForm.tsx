@@ -21,7 +21,7 @@ function LoginForm(){
                 /> 
             </FormFields>            
 
-            <Button type="comum"> Entrar </Button>     
+            <Button type="submit" variant="comum"> Entrar </Button>     
         </form>
     )
 }

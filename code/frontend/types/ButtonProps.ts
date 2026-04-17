@@ -1,6 +1,7 @@
 type buttonProps = {
     children : React.ReactNode,
-    type : "comum" | "critico"
+    variant : "comum" | "critico",
+    type?: string,
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 

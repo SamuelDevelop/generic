@@ -26,7 +26,7 @@ export default function NotFound() {
         <p>  Erro: 404 - Seu navio acabou afundando. Mas não se preocupe você pode sair daqui e continuar a navegar</p>
 
         <Button
-            type="comum"
+            variant="comum"
             onClick={() => router.push("/")}
         >
             <p><FaSailboat /></p>
