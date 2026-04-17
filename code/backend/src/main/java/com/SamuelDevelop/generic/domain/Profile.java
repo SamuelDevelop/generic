@@ -1,8 +1,10 @@
 package com.SamuelDevelop.generic.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Lob;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,8 +20,11 @@ public class Profile {
     @EmbeddedId
     private ProfileId id;
 
-    private String name;
-    private String lastname;
+    @Column(unique = true)
+    private String nickName;
+
+    private String firstName;
+    private String lastName;
     private String description;
 
     @Lob
