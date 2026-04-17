@@ -6,13 +6,12 @@ export async function requestRegister(data : {
     password: string,
     role: "USER"
 }) {
-    console.log(JSON.stringify(data));
     const response = await apiFetch("/auth/register",
         {
             method: "POST",
 
             headers: {
-            "Content-Type": "application/json"
+                "Content-Type": "application/json"
             },
 
             body: JSON.stringify({
