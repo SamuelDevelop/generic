@@ -18,6 +18,7 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ import lombok.Setter;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -40,7 +41,8 @@ public class Publication {
     @Column(nullable = false)
     private LocalDateTime publicationDate;
 
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
     private Users author;
 
     @Enumerated(EnumType.STRING)
@@ -51,7 +53,7 @@ public class Publication {
 
     @ManyToMany
     @JoinTable(
-        name = "post_colaboradores",
+        name = "post_collaborators",
         joinColumns = @JoinColumn(name = "post_id"),
         inverseJoinColumns = @JoinColumn(name = "user_id")
     )

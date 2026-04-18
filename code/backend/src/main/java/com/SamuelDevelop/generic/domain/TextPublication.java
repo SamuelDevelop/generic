@@ -2,6 +2,7 @@ package com.SamuelDevelop.generic.domain;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,8 @@ import lombok.Setter;
 @Setter
 public class TextPublication extends Publication{
 
+    @Column(nullable = false)
     private String text;
+    
     private LocalDateTime lastTextEdit;
 }
