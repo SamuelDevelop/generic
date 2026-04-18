@@ -9,7 +9,7 @@ function FeedPage(){
             ></Header>
             <main>
                 <FeedSection
-                    userHaveProfile={false}
+                    userHaveProfile={true}
                 ></FeedSection>
             </main>
         </div>
