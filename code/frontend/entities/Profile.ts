@@ -6,7 +6,7 @@ export class Profile {
     private personalImage : StaticImageData | null | undefined;
     private firstName : string;
     private lastName: string | null | undefined;
-
+    
     constructor(nickName : string, personalImage : StaticImageData | null | undefined, firstName : string, lastName: string | null | undefined){
         this.nickName = nickName;
         this.personalImage = personalImage;
@@ -21,7 +21,7 @@ export class Profile {
     getFirstName(){
         return this.firstName;
     }
-    
+
     getLastName(){
         return this.lastName;
     }

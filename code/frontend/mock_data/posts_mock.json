@@ -1,0 +1,15 @@
+{
+    "posts": [
+        {
+            "authorNickName": "@lisa",
+            "authorFirstName": "Lisa",
+            "authorLastName": "Simpson",
+            "hasProfileImage": false,
+            "imagePath": "assets/images/landscape_photos/dune.jpg",
+            "publicationDescription": "Today I took a trip to Maranhão's Dunes, it was awesome!",
+            "likesNumber": 15,
+            "commentsnumber": 5
+        }
+    ]
+    
+}

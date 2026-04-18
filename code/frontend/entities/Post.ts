@@ -1,7 +1,7 @@
 import { Profile } from "./Profile";
 import { Publication } from "./Publication";
 
-export class Post {
+export default class Post {
 
     private profile : Profile;
     private publication : Publication;
