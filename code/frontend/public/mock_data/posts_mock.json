@@ -1,0 +1,25 @@
+{
+    "posts": [
+        {
+            "authorNickName": "@lisa",
+            "authorFirstName": "Lisa",
+            "authorLastName": "Simpson",
+            "hasProfileImage": false,
+            "postImage": "/mock_images/dune.jpg",
+            "publicationDescription": "Today I took a trip to Maranhão's Dunes, it was awesome!",
+            "likesNumber": 15,
+            "commentsnumber": 5
+        },
+        {
+            "authorNickName": "@mario",
+            "authorFirstName": "Aquele",
+            "authorLastName": "Mário",
+            "hasProfileImage": false,
+            "postImage": "/mock_images/foto_areia.jpg",
+            "publicationDescription": "What is it? I didn't know, and now a want you try to guess.",
+            "likesNumber": 6,
+            "commentsnumber": 7
+        }
+    ]
+    
+}

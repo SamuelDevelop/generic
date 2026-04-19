@@ -1,42 +1,30 @@
 import PostProps from "@/types/PostProps";
-import Image from "next/image";
 import styles from "./Post.module.css"
+import PostAutorPart from "./PostAutorPart";
+import PostPublicationPart from "./PostPublicationPart";
+import PostAssestsPart from "./PostAssetsPart";
 
-function Post({} : PostProps){
+function Post(post : PostProps){
     
-    const limiteCaracteresDescription = 100;
-
     return(
         <section className={styles.post}>
-            <section className={styles.autor}>
-                {
-                    autor.getPersonalImage() !== null && autor.getPersonalImage() !== undefined ? 
-                    <Image 
-                        src={autor.getPersonalImage() ?? ""}
-                        alt="personal image of a profile"
-                        className={styles.profileImage}
-                    />
+            <PostAutorPart 
+                authorFirstName={post.authorFirstName}
+                authorLastName={post.authorLastName}
+                authorNickName={post.authorNickName}
+                hasProfileImage={post.hasProfileImage}
+                profileImage={post.profileImage}
+            />
 
-                    :
+            <PostPublicationPart 
+                postImage={post.postImage}
+                publicationDescription={post.publicationDescription}
+            />
 
-                    <div className={styles.profileImage}> <p>PP</p> </div>
-                }
-                <p className={styles.autorName}>
-                    <p>{autor.getFirstName()}  {autor.getLastName()}</p>
-                </p>
-            </section>
-
-            <section className={styles.publication}>
-                <img></img>
-                <p className={styles.description}>
-                    {
-                        publication.getPublicationDescription().substring(0, limiteCaracteresDescription)
-                    }
-                </p>
-            </section>
-
-            <section className={styles.postAssets}>
-            </section>
+            <PostAssestsPart
+                likesNumber={post.likesNumber}
+                commentsnumber={post.commentsnumber}
+            />
         </section>
     )
 }

@@ -1,36 +1,44 @@
+"use client"
+import { getMockPosts } from "@/services/mockData";
 import Button from "../Button/Button";
-import StartInGeneric from "../StartInGeneric/StartInGeneric";
 import TwoPartSection from "../TwoPartSection/TwoPartSection";
 import styles from "./FeedSection.module.css"
 import pinkImage from "@/assets/images/landscape_photos/pink_tree.jpg"
+import Posts from "../Post/Posts";
+import PostProps from "@/types/PostProps";
+import { useEffect, useState } from "react";
 
-function FeedSection({userHaveProfile} : FeedSectionProps){
-    return(
-        <section className={styles.feedSection}>
-            {
-                userHaveProfile ?
+function FeedSection({ userHaveProfile }: FeedSectionProps) {
+  const [feedPosts, setFeedPosts] = useState<PostProps[]>([]);
 
-                <section>
-                    <StartInGeneric></StartInGeneric>
-                </section>
+  useEffect(() => {
+    async function loadPosts() {
+      const posts = await getMockPosts();
+      setFeedPosts(posts);
+    }
 
-                :
-                
-                <section>
-                    <TwoPartSection
-                        image={pinkImage}
-                    >
-                        <h1>Crie um perifl Generic!</h1>
-                        <p>Você tem uma conta mas, Você anida não possui um perifl Generic</p>
-                        <Button
-                            variant="comum"
-                        >Crie Agora</Button>
-                    </TwoPartSection>
-                    
-                </section>
-            }
-        </section>
-    )
+    loadPosts();
+  }, []);
+
+  return (
+    <section className={styles.feedSection}>
+      {
+        userHaveProfile ? (
+          <section>
+            <Posts posts={feedPosts} />
+          </section>
+        ) : (
+          <section>
+            <TwoPartSection image={pinkImage}>
+              <h1>Crie um perfil Generic!</h1>
+              <p>Você tem uma conta mas ainda não possui um perfil Generic</p>
+              <Button variant="comum">Crie Agora</Button>
+            </TwoPartSection>
+          </section>
+        )
+      }
+    </section>
+  );
 }
 
 export default FeedSection;

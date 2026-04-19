@@ -16,13 +16,19 @@ Página inicial que convoca os usuários a serem Generic.
 
 <img src="printscreens/register.jpg">
 
-Tela *atual de login (falat sicronizar com backend)
+Tela atual de login 
 
 ### Login:
 
 <img src="printscreens/login.jpg">
 
 Tela *atual de login (falat sicronizar com backend)
+
+### Login:
+
+<img src="printscreens/feed.jpg">
+
+Tela *atual de feed usando dados mockados
 
 
 ### Outras páginas:

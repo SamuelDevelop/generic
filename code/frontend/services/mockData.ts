@@ -1,7 +1,8 @@
+import PostProps from "@/types/PostProps";
 
 export async function getMockData(fileName : string){
     try {
-        console.log(`Fecth em: @/mock_data/${fileName}.json`);
+        console.log(`/mock_data/${fileName}.json`);
         const response = await fetch(`/mock_data/${fileName}.json`);
         const data = await response.json();
 
@@ -12,9 +13,12 @@ export async function getMockData(fileName : string){
     }
 }
 
-export async function getMockPost() {
-    const postsData = await getMockData("posts_mock");
-    const postsArray = postsData.posts;
-    
-    return postsArray;
+type MockPostsResponse = {
+  posts: PostProps[];
+};
+
+export async function getMockPosts() : Promise<PostProps[]> {
+    const postsData = await getMockData("posts_mock") as MockPostsResponse;
+
+    return postsData.posts;
 }
