@@ -2,9 +2,8 @@ import PostProps from "@/types/PostProps";
 import Image from "next/image";
 import styles from "./Post.module.css"
 
-function Post({post} : PostProps){
-    const autor = post.getProfile();
-    const publication = post.getPublication();
+function Post({} : PostProps){
+    
     const limiteCaracteresDescription = 100;
 
     return(
