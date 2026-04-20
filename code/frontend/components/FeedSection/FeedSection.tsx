@@ -7,6 +7,7 @@ import pinkImage from "@/assets/images/landscape_photos/pink_tree.jpg"
 import Posts from "../Post/Posts";
 import PostProps from "@/types/PostProps";
 import { useEffect, useState } from "react";
+import FeedNavigation from "../FeedNavagation/FeedNavigation";
 
 function FeedSection({ userHaveProfile }: FeedSectionProps) {
   const [feedPosts, setFeedPosts] = useState<PostProps[]>([]);
@@ -26,6 +27,7 @@ function FeedSection({ userHaveProfile }: FeedSectionProps) {
         userHaveProfile ? (
           <section>
             <Posts posts={feedPosts} />
+            <FeedNavigation />
           </section>
         ) : (
           <section>

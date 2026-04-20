@@ -7,7 +7,7 @@ type PostAutorProps = Pick<
   "authorFirstName" | "authorLastName" | "authorNickName" | "hasProfileImage" | "profileImage"
 >;
 
-function PostAutorPart({authorFirstName, authorLastName, hasProfileImage, profileImage} : PostAutorProps){
+function PostAutorPart({authorFirstName, authorLastName, hasProfileImage, profileImage, authorNickName} : PostAutorProps){
     const alternativeAvatarString = `${authorFirstName.charAt(0).toUpperCase()}${authorLastName.charAt(0).toUpperCase()}`;
     console.log(alternativeAvatarString);
 
@@ -25,9 +25,15 @@ function PostAutorPart({authorFirstName, authorLastName, hasProfileImage, profil
 
                 <div className={styles.alternativeAvatar}> <p>{alternativeAvatarString}</p> </div>
             }
-            <p className={styles.autorName}>
-                {authorFirstName}  {authorLastName}
-            </p>
+            <div className={styles.autorNames}>
+                <p>
+                    {authorFirstName}  {authorLastName}
+                </p>
+                <p className={styles.autorNickname}>
+                    {authorNickName}
+                </p>
+            </div>
+            
         </section>
     )
 }

@@ -1,6 +1,7 @@
 .posts{
     display: flex;
     flex-direction: row;
+    padding: 1.5rem 0;
     gap: 1rem;
     max-width: calc(21rem * 4);
     box-sizing: border-box;
@@ -28,6 +29,23 @@
     gap: .4rem;
 }
 
+.autorNames{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.autorNames:hover *{
+    color: var(--blueColor);
+    text-decoration: underline;
+}
+
+.autorNickname{
+    opacity: .8;
+    font-weight: bolder;
+    font-size: 0.8rem;
+}
+
 .profileImage{
     width: 5rem; height: 5rem;
     border-radius: 1rem;
@@ -43,8 +61,8 @@
     justify-content: center;
     border-radius: 50%;
 
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .publication{
@@ -67,8 +85,17 @@
 }
 
 .postAction{
+    padding: .2rem;
     gap: .2rem;
     cursor: pointer;
+}
+
+.postAction p{
+    opacity: .8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .postAction:hover *{

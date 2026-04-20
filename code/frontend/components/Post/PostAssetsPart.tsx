@@ -21,9 +21,17 @@ function PostAssestsPart({likesNumber, commentsnumber}: PostAssestsProps){
                 <p>{commentsnumber}</p>
             </div>
             
-            <p><FaShare /></p>
-            <p><FiAlertTriangle /></p>
-            <p><FaSailboat /></p>
+            <div className={styles.postAction}>
+                <p><FaShare /></p>
+            </div> 
+            
+            <div className={styles.postAction}>
+                <p><FiAlertTriangle /></p>
+            </div> 
+            
+            <div className={styles.postAction}>
+                <p><FaSailboat /></p>
+            </div> 
         </section>
     )
 }

@@ -12,13 +12,23 @@
         },
         {
             "authorNickName": "@mario",
-            "authorFirstName": "Aquele",
+            "authorFirstName": "aquele",
             "authorLastName": "Mário",
             "hasProfileImage": false,
             "postImage": "/mock_images/foto_areia.jpg",
             "publicationDescription": "What is it? I didn't know, and now a want you try to guess.",
             "likesNumber": 6,
             "commentsnumber": 7
+        },
+        {
+            "authorNickName": "@marioGalaxy",
+            "authorFirstName": "aquele",
+            "authorLastName": "Mário",
+            "hasProfileImage": false,
+            "postImage": "/mock_images/foto_areia.jpg",
+            "publicationDescription": "What is it? I didn't know, and now a want you try to guess.",
+            "likesNumber": 67,
+            "commentsnumber": 67
         }
     ]
     

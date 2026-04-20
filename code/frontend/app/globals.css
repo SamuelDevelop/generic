@@ -1,6 +1,7 @@
 :root {
-    --blueColor: rgb(28, 49, 141);
+    --blueColor: rgb(17, 42, 155);
     --blueDarkColor: rgb(16, 27, 78);
+    --grayColor: #24242b;
     --darkColor: #09090a;
     --whiteColor: rgb(255, 255, 255);
 }
