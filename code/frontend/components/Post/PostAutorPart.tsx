@@ -16,9 +16,11 @@ function PostAutorPart({authorFirstName, authorLastName, hasProfileImage, profil
             {
                 hasProfileImage ? 
                 <Image 
-                    src={profileImage ?? ""}
+                    src={profileImage || "/images/ideias/image-not-found"}
                     alt="personal image of a profile"
                     className={styles.profileImage}
+                    width={1000}
+                    height={1000}
                 />
 
                 :

@@ -4,8 +4,9 @@
             "authorNickName": "@lisa",
             "authorFirstName": "Lisa",
             "authorLastName": "Simpson",
-            "hasProfileImage": false,
-            "postImage": "/mock_images/dune.jpg",
+            "hasProfileImage": true,
+            "profileImage": "/images/avatares/lisa-simpson.png",
+            "postImage": "/images/landscape/dune.jpg",
             "publicationDescription": "Today I took a trip to Maranhão's Dunes, it was awesome!",
             "likesNumber": 15,
             "commentsnumber": 5
@@ -14,8 +15,9 @@
             "authorNickName": "@mario",
             "authorFirstName": "aquele",
             "authorLastName": "Mário",
-            "hasProfileImage": false,
-            "postImage": "/mock_images/foto_areia.jpg",
+            "hasProfileImage": true,
+            "profileImage": "/images/avatares/mario.png",
+            "postImage": "/images/landscape/foto_areia.jpg",
             "publicationDescription": "What is it? I didn't know, and now a want you try to guess.",
             "likesNumber": 6,
             "commentsnumber": 7
@@ -25,8 +27,8 @@
             "authorFirstName": "aquele",
             "authorLastName": "Mário",
             "hasProfileImage": false,
-            "postImage": "/mock_images/foto_areia.jpg",
-            "publicationDescription": "What is it? I didn't know, and now a want you try to guess.",
+            "postImage": "/images/landscape/space.jpg",
+            "publicationDescription": "Some day i went to space and every my 'friends' called me dumb! So here, i have a photo to prove my lil visit",
             "likesNumber": 67,
             "commentsnumber": 67
         }

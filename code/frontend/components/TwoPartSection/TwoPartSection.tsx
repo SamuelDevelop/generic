@@ -13,6 +13,8 @@ function TwoPartSection({children, image, alt} : TwoPartSectionProps){
                     src = {image}
                     alt = {alt ?? ""}
                     className={styles.image}
+                    width={1000}
+                    height={1000}
                 />
             </section>
         </section>

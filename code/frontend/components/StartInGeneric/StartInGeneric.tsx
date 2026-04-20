@@ -1,10 +1,6 @@
 'use client'
 import { FaRegComment, FaRegHeart, FaShare } from "react-icons/fa";
 
-import beachImage from "../../assets/images/landscape_photos/beach.jpg";
-import duneImage from "../../assets/images/landscape_photos/dune.jpg";
-import sandImage from "../../assets/images/landscape_photos/foto_areia.jpg";
-
 import Button from "../Button/Button";
 import styles from "./StartInGeneric.module.css"
 import Image from "next/image";
@@ -17,7 +13,7 @@ import { useEffect, useState } from "react";
 function StartInGeneric(){
 
     const router = useRouter();
-    const initialImages = [sandImage, duneImage, beachImage];
+    const initialImages = ["/images/landscape/beach.jpg", "/images/landscape/dune.jpg", "/images/landscape/foto_areia.jpg", "/images/landscape/space.jpg"];
     const [imageIndex, setImageIndex] = useState<number>(0);
     
     useEffect(()=>{
@@ -50,8 +46,10 @@ function StartInGeneric(){
             <div className={styles.imageStartSection}>
                 <Image 
                     src={initialImage}
-                    alt="imagem de dunas"
+                    alt="carrocel de imagens de paisagens dinâmicas"
                     className={styles.imageStart}
+                    width={1000}
+                    height={1000}
                 />
 
                 <div className={styles.icones}>

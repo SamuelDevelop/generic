@@ -1,37 +1,35 @@
 'use client'
 import Image from "next/image";
-import image from "@/assets/images/landscape_photos/pink_tree.jpg"
 import styles from "@/app/notFound/notFound.module.css"
 
 import { FaSailboat } from "react-icons/fa6";
 import Button from "@/components/Button/Button";
 import { useRouter } from "next/navigation";
+import TwoPartSection from "@/components/TwoPartSection/TwoPartSection";
 
 export default function NotFound() {
     const router = useRouter();
 
   return (
-    <main className="allScreen leftedPage">
-              
-        <Image
-            className={styles.mainImage}
-            src={image}
-            alt="pink tree"
-        ></Image>
+    <main className="allScreen">
 
-        <div className={styles.icones}>
-            <p></p>
-        </div>     
-        <h1><FaSailboat /> Página não encontrada</h1>
-        <p>  Erro: 404 - Seu navio acabou afundando. Mas não se preocupe você pode sair daqui e continuar a navegar</p>
-
-        <Button
-            variant="comum"
-            onClick={() => router.push("/")}
+        <TwoPartSection
+            image={"/images/landscape/space.jpg"}
         >
-            <p><FaSailboat /></p>
-            <p>Navegar</p>
-        </Button>
+            <div className={styles.icones}>
+                <h1><FaSailboat /> Ops!</h1>
+                <p>  Erro: 404 - Seu navio acabou afundando. Mas não se preocupe você pode sair daqui e continuar a navegar</p>
+            </div>     
+            
+            <Button
+                variant="comum"
+                onClick={() => router.push("/")}
+            >
+                <p><FaSailboat /></p>
+                <p>Navegar</p>
+            </Button>
+        </TwoPartSection>      
+        
     </main>
   );
 }

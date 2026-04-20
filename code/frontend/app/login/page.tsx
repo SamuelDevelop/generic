@@ -1,12 +1,11 @@
 import LoginForm from "@/components/Forms/LoginForm";
 import TwoPartSection from "@/components/TwoPartSection/TwoPartSection";
-import conectivyImage from "@/assets/images/landscape_photos/entrance.jpg"
 
 function LoginPage(){
     return (
         <main className="allScreen">
             <TwoPartSection
-                image={conectivyImage}
+                image={"/images/landscape/entrance.jpg"}
             >
                 <h1>Login:</h1>
                 <LoginForm />

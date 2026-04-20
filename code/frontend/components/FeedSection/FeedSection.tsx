@@ -3,7 +3,6 @@ import { getMockPosts } from "@/services/mockData";
 import Button from "../Button/Button";
 import TwoPartSection from "../TwoPartSection/TwoPartSection";
 import styles from "./FeedSection.module.css"
-import pinkImage from "@/assets/images/landscape_photos/pink_tree.jpg"
 import Posts from "../Post/Posts";
 import PostProps from "@/types/PostProps";
 import { useEffect, useState } from "react";
@@ -31,7 +30,7 @@ function FeedSection({ userHaveProfile }: FeedSectionProps) {
           </section>
         ) : (
           <section>
-            <TwoPartSection image={pinkImage}>
+            <TwoPartSection image={"/images/ideias/conectada.jpg"}>
               <h1>Crie um perfil Generic!</h1>
               <p>Você tem uma conta mas ainda não possui um perfil Generic</p>
               <Button variant="comum">Crie Agora</Button>

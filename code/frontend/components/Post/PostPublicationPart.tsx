@@ -1,7 +1,6 @@
 import PostProps from "@/types/PostProps";
 import styles from "./Post.module.css";
 import Image from "next/image";
-import duneImg from "@/assets/images/landscape_photos/dune.jpg";
 
 type PostPublicationProps = Pick< 
     PostProps,
@@ -9,12 +8,12 @@ type PostPublicationProps = Pick<
 >
 
 function PostPublicationPart({postImage, publicationDescription} : PostPublicationProps){
-    const limiteCaracteresDescription = 100;
+    const limiteCaracteresDescription = 71;
 
     return (
         <section className={styles.publication}>
             <Image 
-                src={postImage || duneImg}
+                src={postImage || "/images/ideias/image-not-found"}
                 alt={publicationDescription}
                 className={styles.publicationImage}
                 width={1000}
@@ -23,6 +22,10 @@ function PostPublicationPart({postImage, publicationDescription} : PostPublicati
             <p className={styles.description}>
                 {
                     publicationDescription.substring(0, limiteCaracteresDescription)
+                }
+                {
+                    publicationDescription.length > limiteCaracteresDescription ?
+                    `(...more)` : ""
                 }
             </p>
         </section>
