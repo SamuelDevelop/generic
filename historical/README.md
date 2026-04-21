@@ -22,7 +22,7 @@ Tela atual de login
 
 <img src="printscreens/login.jpg">
 
-Tela *atual de login (falat sicronizar com backend)
+Tela *atual de login
 
 ### Login:
 

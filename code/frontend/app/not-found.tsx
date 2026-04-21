@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import styles from "@/app/notFound/notFound.module.css"
 
 import { FaSailboat } from "react-icons/fa6";

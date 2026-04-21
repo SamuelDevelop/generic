@@ -1,8 +1,10 @@
+'use client'
 import HeaderProps from "@/types/HeaderProps";
 import NavBar from "../NavBar/NavBar";
 import Image from "next/image";
 import styles from "./Header.module.css"
 import { FaSailboat } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 
 function Header(
     {
@@ -13,9 +15,14 @@ function Header(
         userFirstName
     } : HeaderProps
 ){
+    const router = useRouter();
+
     return(
         <header className={styles.header}>
-            <div className={styles.logotipo}>
+            <div 
+                className={styles.logotipo} 
+                onClick={() => router.push("/")}
+            >
                 <FaSailboat />
                 <h3><b>Generic</b></h3>
             </div>    

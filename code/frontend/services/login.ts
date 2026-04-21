@@ -7,7 +7,7 @@ export async function requestLogin(data : {
 
     console.log(JSON.stringify(data));
     
-    const response = await apiFetch("auth/login", {
+    const response = await apiFetch("/auth/login", {
         method: "POST",
 
         headers: {
@@ -21,6 +21,6 @@ export async function requestLogin(data : {
     })
 
     if(!response.ok){
-        throw new Error("Erro ao Cadstrar");
+        throw new Error("Erro ao Logar");
     }
 }

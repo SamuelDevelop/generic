@@ -5,7 +5,9 @@ import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.SamuelDevelop.generic.domain.Users;
 import com.SamuelDevelop.generic.dto.AuthenticationDTO;
 import com.SamuelDevelop.generic.dto.RegisterDTO;
+import com.SamuelDevelop.generic.dto.UserResponseDTO;
 import com.SamuelDevelop.generic.repostories.UserRepository;
 import com.SamuelDevelop.generic.service.TokenService;
 
@@ -34,7 +37,7 @@ public class AuthenticationController {
     private UserRepository repository;
     
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data, HttpServletResponse response){
+    public ResponseEntity<?> login(@RequestBody @Valid AuthenticationDTO data, HttpServletResponse response){
         var usernamePasword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = authenticationManager.authenticate(usernamePasword);
 
@@ -53,7 +56,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody @Valid RegisterDTO data){
+    public ResponseEntity<?> register(@RequestBody @Valid RegisterDTO data){
         if(this.repository.findByLogin(data.login()) != null) {
             return ResponseEntity.badRequest().build();
         }
@@ -64,5 +67,22 @@ public class AuthenticationController {
         this.repository.save(newUser);
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<?> me(Authentication authentication){
+        if(authentication == null){
+            return ResponseEntity.status(401).build();
+        }
+
+        Users user = (Users) authentication.getPrincipal();
+
+        UserResponseDTO userDTO = new UserResponseDTO(
+            user.getLogin(),
+            user.getName(),
+            user.getRole().name()
+        );
+
+        return ResponseEntity.ok(userDTO);
     }
 }

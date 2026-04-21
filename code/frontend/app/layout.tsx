@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import { AuthProvider } from "@/components/authContext";
 
 export const metadata: Metadata = {
   title: "Generic",
@@ -10,18 +11,6 @@ export const metadata: Metadata = {
     icon: "../../../assets/images/brand/logo.png",
   },
 };
-
-const fontLexend = localFont({
-  src: [
-    {
-      path: "../assets/fonts/Lexend.ttf",
-      weight: "100 900",
-      style: "normal",
-    },
-  ],
-  
-  variable: "--fontLexend" 
-});
 
 const fontInter = localFont({
   src: [
@@ -57,7 +46,11 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${fontInter.variable} ${fontPoltawski.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   );
 }
