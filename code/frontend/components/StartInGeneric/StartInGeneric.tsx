@@ -8,6 +8,7 @@ import { FaSailboat } from "react-icons/fa6";
 import { FiAlertTriangle } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Icon from "../Icon/Icon";
 
 
 function StartInGeneric(){
@@ -53,11 +54,11 @@ function StartInGeneric(){
                 />
 
                 <div className={styles.icones}>
-                    <p><FaRegHeart /></p>
-                    <p><FaRegComment /></p> 
-                    <p><FaShare /></p>
-                    <p><FiAlertTriangle /></p>
-                    <p><FaSailboat /></p>
+                    <p><Icon icon="like"/></p>
+                    <p><Icon icon="comment"/></p> 
+                    <p><Icon icon="share"/></p>
+                    <p><Icon icon="alert"/></p>
+                    <p><Icon icon="boat"/></p>
                 </div>        
             </div>
         </section>

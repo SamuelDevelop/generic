@@ -1,0 +1,14 @@
+.navOption{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navOption:hover *{
+    color: var(--blueColor);
+}

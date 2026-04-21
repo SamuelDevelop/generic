@@ -1,14 +1,25 @@
-import { AiFillThunderbolt } from "react-icons/ai";
 import styles from "./FeedNavigation.module.css"
-import { FaBook, FaRegComment, FaSailboat } from "react-icons/fa6";
+import FeedNavOption from "../FeedNavOption/FeedNavOption";
+import Icon from "../Icon/Icon";
 
 function FeedNavigation(){
     return (
         <aside className={styles.navigation}>
-            <p className={styles.navOption}><AiFillThunderbolt /></p>
-            <p className={styles.navOption}><FaRegComment /></p>
-            <p className={styles.navOption}><FaBook /></p>
-            <p className={styles.navOption}><FaSailboat /></p>
+            <FeedNavOption>
+                <Icon icon="swirl"/>
+            </FeedNavOption>
+
+            <FeedNavOption>
+                <Icon icon="comment"/>
+            </FeedNavOption>
+
+            <FeedNavOption>
+                <Icon icon="book"/>
+            </FeedNavOption>
+            
+            <FeedNavOption>
+                <Icon icon="boat"/>
+            </FeedNavOption>
         </aside>
     )
 }

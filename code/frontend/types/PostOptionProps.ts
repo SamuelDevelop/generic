@@ -1,7 +1,7 @@
 type PostOptionProps = {
     children : React.ReactNode
     typeOption: "comum" | "critico"
-    number: number
+    number?: number
     onclick? : (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 

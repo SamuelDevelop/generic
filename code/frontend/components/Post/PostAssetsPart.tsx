@@ -3,6 +3,8 @@ import styles from "./Post.module.css";
 import { FaRegHeart, FaSailboat, FaShare } from "react-icons/fa6";
 import { FaRegComment } from "react-icons/fa";
 import { FiAlertTriangle } from "react-icons/fi";
+import PostOption from "../PostOption/PostOption";
+import Icon from "../Icon/Icon";
 
 type PostAssestsProps = Pick< 
     PostProps,
@@ -12,26 +14,37 @@ type PostAssestsProps = Pick<
 function PostAssestsPart({likesNumber, commentsnumber}: PostAssestsProps){
     return (
         <section className={styles.postAssets}>
-            <div className={styles.postAction}>
-                <p><FaRegHeart /></p> 
-                <p>{likesNumber}</p>
-            </div>
-            <div className={styles.postAction}>
-                <p><FaRegComment /></p> 
-                <p>{commentsnumber}</p>
-            </div>
+            <PostOption
+                typeOption="comum"
+                number={likesNumber}
+            >
+                <Icon icon="like"/>
+            </PostOption>
+
+            <PostOption
+                typeOption="comum"
+                number={commentsnumber}
+            >
+                <Icon icon="comment"/>
+            </PostOption>
             
-            <div className={styles.postAction}>
-                <p><FaShare /></p>
-            </div> 
+            <PostOption
+                typeOption="comum"
+            >
+                <Icon icon="share"/>
+            </PostOption>
             
-            <div className={styles.postAction}>
-                <p><FiAlertTriangle /></p>
-            </div> 
-            
-            <div className={styles.postAction}>
-                <p><FaSailboat /></p>
-            </div> 
+            <PostOption
+                typeOption="critico"
+            >
+                <Icon icon="alert"/>
+            </PostOption>
+
+            <PostOption
+                typeOption="comum"
+            >
+                <Icon icon="boat"/>
+            </PostOption>
         </section>
     )
 }
