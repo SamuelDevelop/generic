@@ -1,6 +1,6 @@
 # Generic SM
 
-> Atenção: Projeto pessoal e com finalidade de aprendizagem sem pretenções sérias ou de profissionalização. A reutilização deste conteúdo não é autorizada.
+> Atenção: Projeto pessoal e com finalidade de aprendizagem sem pretenções sérias ou de profissionalização.
 
 <div align="center">
         <img src="/code/frontend/assets/images/brand/logo.png">

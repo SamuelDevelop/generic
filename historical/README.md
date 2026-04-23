@@ -16,13 +16,13 @@ Página inicial que convoca os usuários a serem Generic.
 
 <img src="printscreens/register.jpg">
 
-Tela atual de login 
+Tela atual de registro, já conectada aos endpoints da api. Completamente funcional para cadastrar usuários.
 
 ### Login:
 
 <img src="printscreens/login.jpg">
 
-Tela *atual de login
+Tela atual de login, já conectada aos endpoints da api.Funcional para logar em sua conta.
 
 ### Login:
 
