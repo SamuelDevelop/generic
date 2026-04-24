@@ -1,15 +1,13 @@
+
+<img src="/code/frontend/public/logo.png" width="100px">
+        
+
 # Generic SM
+<b>Para você: the generic social media.</b>
 
 > Atenção: Projeto pessoal e com finalidade de aprendizagem sem pretenções sérias ou de profissionalização.
 
-<div align="center">
-        <img src="/code/frontend/assets/images/brand/logo.png">
-        <br>
-        <b>To you: The generic social media.</b>
-</div>
-
-
-## Our mission
+## Da Ideia:
 
 Ser uma rede social completamente genérica cujo objetivo é não inovar em nada, replicar tudo o que já existe e qualquer novidade que esta busque trazer já estará anteriormente em algum lugar do mundo.
 
@@ -18,9 +16,9 @@ Posts genericos, likes genericos, comentarios genericos, amizades e relacionamen
 <b>This is being Generic</b>
 
 
-## My stack
+## Da Stack:
 
-Indo para mais pé no chão, escolhi uma stack mais robusta para vivenciar tal tipo de experiencia.
+Indo para mais pé no chão, escolhi uma stack possui a robustez do Java o react e a forte tipagem do Typescript.
 
 **Frontend:**
 
@@ -37,18 +35,17 @@ Indo para mais pé no chão, escolhi uma stack mais robusta para vivenciar tal t
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-JPA-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 
-## How to use
+## Do uso:
 
 Não existe projeto ainda então... não tem como!
 
-## Future Plans 
+## Dos Planos:
 
 Os mais Generic planos construidos aqui são:
         
 ->  Hospedar tudo e usar como portifolio 
 
-> Achou os tudo muito generico? Que bom! This is the Generic Pattern
-
+> Achou os tudo muito generico?  Que bom! <b>This is the Generic Pattern</b>
 
 <br><br>
 

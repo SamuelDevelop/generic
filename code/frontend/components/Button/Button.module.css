@@ -21,3 +21,8 @@
 .button:hover{
     background-color: var(--blueColor);
 }
+
+.button p{
+    display: flex;
+    align-items: center;
+}

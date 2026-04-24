@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Generic",
   description: "A generic social media",
   icons: {
-    icon: "../../../assets/images/brand/logo.png",
+    icon: "/logo.png",
   },
 };
 
