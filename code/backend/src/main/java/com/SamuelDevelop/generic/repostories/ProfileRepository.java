@@ -6,5 +6,6 @@ import com.SamuelDevelop.generic.domain.Profile;
 import com.SamuelDevelop.generic.domain.ProfileId;
 
 public interface ProfileRepository extends JpaRepository<Profile, ProfileId> {
-    Profile findByAuthorId(ProfileId id);
+    Profile findByIdUserId(long userId);
+    Profile findByIdProfileId(long profileId);
 }

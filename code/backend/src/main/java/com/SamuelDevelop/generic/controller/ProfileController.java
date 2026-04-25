@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SamuelDevelop.generic.domain.Profile;
-import com.SamuelDevelop.generic.domain.ProfileId;
 import com.SamuelDevelop.generic.dto.ProfileDTO;
 import com.SamuelDevelop.generic.repostories.ProfileRepository;
 import com.SamuelDevelop.generic.service.ProfileService;
@@ -28,15 +27,15 @@ public class ProfileController {
     private ProfileService service;
 
     @GetMapping("{id}")
-    public Profile getProfileById(@PathVariable ProfileId id){
-        return repository.findByAuthorId(id);
+    public Profile getProfileById(@PathVariable Long id){
+        return repository.findByIdProfileId(id);
     }
 
     @PostMapping("/create")
     public ResponseEntity<?> createProfile(@RequestBody @Valid ProfileDTO dto){
         Profile profile = service.toEntity(dto);
 
-        if(this.repository.findByAuthorId(profile.getId()) != null){
+        if(this.repository.findByIdUserId(dto.userId()) != null){
             return ResponseEntity.badRequest().build();
         }
 
