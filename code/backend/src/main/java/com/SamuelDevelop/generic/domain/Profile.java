@@ -40,8 +40,4 @@ public class Profile {
 
     @Column(nullable = false)
     private LocalDate birthday;
-
-    private String personalLinks[];
-    private String personalHobbies[];
-    private String userPreferences[];
 }
