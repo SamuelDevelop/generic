@@ -1,9 +1,14 @@
 package com.SamuelDevelop.generic.domain;
 
+import java.time.LocalDate;
+
+import com.SamuelDevelop.generic.enums.Gender;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Lob;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,10 +31,15 @@ public class Profile {
     private String lastName;
     private String description;
 
-    @Lob
+    @Column(columnDefinition = "bytea")
     private byte[] personalImage;
 
-    private Character gender;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Gender gender;
+
+    @Column(nullable = false)
+    private LocalDate birthday;
 
     private String personalLinks[];
     private String personalHobbies[];

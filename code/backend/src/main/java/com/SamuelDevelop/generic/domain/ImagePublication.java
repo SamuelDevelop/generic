@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ImagePublication extends Publication{
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "bytea")
     private byte[] image;
 
     @Column(nullable = false)

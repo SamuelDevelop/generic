@@ -15,25 +15,15 @@ Posts genericos, likes genericos, comentarios genericos, amizades e relacionamen
 
 <b>This is being Generic</b>
 
-
 ## Da Stack:
 
 Indo para mais pé no chão, escolhi uma stack possui a robustez do Java o react e a forte tipagem do Typescript.
 
-**Frontend:**
-
-![ts](https://img.shields.io/badge/TypeScript-React_(Next)-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![html](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![css](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
-**Backend:**
-
-![Java](https://img.shields.io/badge/Java-Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![Spring](https://img.shields.io/badge/Spring-Data_JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-
-**Database:**
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-JPA-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+| Categoria  | Tecnologias |
+|------------|-------------|
+| Frontend   | ![ts](https://img.shields.io/badge/TypeScript-React_(Next)-3178C6?style=for-the-badge&logo=typescript&logoColor=white) ![html](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![css](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) |
+| Backend    | ![Java](https://img.shields.io/badge/Java-Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white) ![Spring](https://img.shields.io/badge/Spring-Data_JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white) |
+| Database   | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-JPA-4169E1?style=for-the-badge&logo=postgresql&logoColor=white) |
 
 ## Do uso:
 

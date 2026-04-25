@@ -5,8 +5,11 @@ import Button from "../Button/Button";
 import TextInput from "../Inputs/TextInput";
 import FormFields from "./FormFields";
 import styles from "./Forms.module.css"
+import { useRouter } from "next/navigation";
 
 function LoginForm(){
+    const router = useRouter();
+
     const {
         login,
         setLogin,
@@ -22,7 +25,7 @@ function LoginForm(){
         const sucesso = await submit();
 
         if(sucesso){
-            console.log("Usuário logado");
+            router.replace("/createProfile");
         }
     }
 

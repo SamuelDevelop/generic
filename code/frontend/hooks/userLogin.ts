@@ -37,6 +37,8 @@ export function useLogin(){
             setErro("Problema ao login de usuário");
             return false;
         }
+
+        return true;
     }
 
     return {
