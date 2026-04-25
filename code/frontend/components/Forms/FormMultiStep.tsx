@@ -5,14 +5,10 @@ import { useForm } from "react-hook-form"
 
 import styles from "./FormMultiStep.module.css"
 import Button from "../Button/Button"
-
-type Step = {
-    component: any,
-    fields: string[]
-}
+import FormStep from "@/types/FormSteptype"
 
 type MultiStepFormProps = {
-    steps: Step[],
+    steps: FormStep[],
     onSubmit: (data: any)=> void
 }
 
@@ -38,9 +34,9 @@ export function FormMultiStep({steps, onSubmit} : MultiStepFormProps){
 
     return(
         <form onSubmit={form.handleSubmit(onSubmit)}>
-            <p>Progresso: {steps.length}/{stepIndex}</p>
+            <p>Progresso: {stepIndex + 1}/{steps.length}</p>
             
-            <CurrentStep form={form}/>
+            <CurrentStep {...steps[stepIndex].props} form={form} />
 
             <section className={styles.multiStepActions}>
                 {stepIndex > 0 && (

@@ -1,0 +1,7 @@
+.container{
+    border: var(--comumBorder);
+    padding: 1rem;
+    border-radius: .5rem;
+    
+    box-shadow: 0px 0px 6px 2px #1d1d1d4f;
+}

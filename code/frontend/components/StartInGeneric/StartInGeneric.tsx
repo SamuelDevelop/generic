@@ -9,6 +9,7 @@ import { FiAlertTriangle } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Icon from "../Icon/Icon";
+import SimpleContainer from "../SimpleContainer/SimpleContainer";
 
 
 function StartInGeneric(){
