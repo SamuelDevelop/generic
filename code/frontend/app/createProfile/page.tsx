@@ -1,5 +1,7 @@
 "use client"
 import { useAuth } from "@/components/authContext";
+import BasicData from "@/components/Forms/CreateProfileForm/BasicData";
+import PerfilData from "@/components/Forms/CreateProfileForm/PerfilData";
 import { FormMultiStep } from "@/components/Forms/FormMultiStep";
 import TextInput from "@/components/Inputs/TextInput";
 import SimpleContainer from "@/components/SimpleContainer/SimpleContainer";
@@ -20,20 +22,12 @@ function CreateProfilePage(){
 
     const steps: FormStep[] = [
         {
-            component: TextInput,
-            props: {
-                labelText: "Primeiro Nome",
-                labelSide: "lateral"
-            },
-            fields: ["Primeiro Nome"]
+            component: BasicData,
+            fields: []
         },
         {
-            component: TextInput,
-            props: {
-                labelText: "Resto do Nome",
-                labelSide: "lateral"
-            },
-            fields: ["Resto do Nome"]
+            component: PerfilData,
+            fields: []
         }
     ]
 

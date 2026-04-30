@@ -14,7 +14,7 @@ function SelectInput({options, textLabel, name, aviso} : SelectInputProps){
 
     return(
         <label>
-            <p>{textLabel}</p>
+            <p>{textLabel}:</p>
             <select 
                 name={name} 
                 value={selectedValue} 

@@ -24,5 +24,4 @@ export const schema = z.object({
       if (!files || files.length === 0) return true
       return ["image/jpeg", "image/png"].includes(files[0].type)
     }, "Formato inválido")
-
 })

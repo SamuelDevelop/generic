@@ -1,18 +1,20 @@
 type DateInputProps = {
-  value: Date | null
-  onChange: (date: Date | null) => void
+  value: string
+  onChange: (value: string) => void
+  labelText: string
 }
 
-function DateInput({ value, onChange }: DateInputProps) {
+export function DateInput({ value, onChange, labelText }: DateInputProps) {
   return (
-    <input
-      type="date"
-      value={value ? value.toISOString().slice(0, 10) : ""}
-      onChange={e => {
-        const val = e.target.value
-        onChange(val ? new Date(val) : null)
-      }}
-    />
+    <label>
+        <p>{labelText}:</p>
+        <input
+        type="date"
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        />
+    </label>
+    
   )
 }
 
