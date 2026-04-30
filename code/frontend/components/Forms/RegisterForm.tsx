@@ -34,8 +34,7 @@ function RegisterForm(){
                 <TextInput 
                     labelText="Digite um nome"
                     labelSide="lateral" 
-                    placeholder="seu nome e sobrenome"
-                    aviso="este nome será o nome do seu perfil na plataforma"  
+                    placeholder="seu nome e sobrenome"  
                     inputValue={nome}
                     onChange={(e : any) => setNome(e.target.value)}         
                 /> 

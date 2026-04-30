@@ -3,9 +3,16 @@ import { z } from "zod"
 export const schema = z.object({
   firstName: z.string(),
   lastName: z.string(),
-  description: z.string(),
+
+  birthday: z.string()
+            .refine((val) => !isNaN(Date.parse(val)), {
+            message: "Data inválida",
+  }).transform((val) => new Date(val)),
   gender: z.enum(["MALE", "FEMALE", "NONBINARY", "NOTINFORMED", "UNDEFINED"]),
+
+  description: z.string(),
   nickName: z.string(),
+
   imagem: z
     .any()
     .optional()
