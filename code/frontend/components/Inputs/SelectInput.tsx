@@ -1,25 +1,22 @@
-'use client'
 import OptionProps from "@/types/OptionsProps"
-import { useState } from "react"
 
 type SelectInputProps = {
     options: OptionProps[],
     textLabel: string,
     name: string,
     aviso?: string
+    onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void 
+    value?: string
 }
 
-function SelectInput({options, textLabel, name, aviso} : SelectInputProps){
-    const [selectedValue, setSelectedValue] = useState<string>()
-
+function SelectInput({options, textLabel, name, aviso, onChange, value} : SelectInputProps){
     return(
         <label>
             <p>{textLabel}:</p>
             <select 
                 name={name} 
-                value={selectedValue} 
-                onChange={e => setSelectedValue(e.target.value)}
-                defaultValue={options.find(op => op.isSelected)?.value}
+                value={value} 
+                onChange={onChange}
             >
                 {
                     options.map((op, index) =>

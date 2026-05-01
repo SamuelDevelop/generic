@@ -7,13 +7,13 @@ export const schema = z.object({
   birthday: z.string()
             .refine((val) => !isNaN(Date.parse(val)), {
             message: "Data inválida",
-  }).transform((val) => new Date(val)),
+  }),
   gender: z.enum(["MALE", "FEMALE", "NONBINARY", "NOTINFORMED", "UNDEFINED"]),
 
   description: z.string(),
   nickName: z.string(),
 
-  imagem: z
+  profileImage: z
   .instanceof(File)
   .optional()
   .refine(file => {

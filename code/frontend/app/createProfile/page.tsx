@@ -3,12 +3,15 @@ import { useAuth } from "@/components/authContext";
 import BasicData from "@/components/Forms/CreateProfileForm/BasicData";
 import PerfilData from "@/components/Forms/CreateProfileForm/PerfilData";
 import { FormMultiStep } from "@/components/Forms/FormMultiStep";
-import TextInput from "@/components/Inputs/TextInput";
 import SimpleContainer from "@/components/SimpleContainer/SimpleContainer";
 import FormStep from "@/types/FormSteptype";
+import { useForm } from "react-hook-form";
+import { schema } from "@/components/Forms/CreateProfileForm/formSchema"
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
 
-function test(){
-    console.log("testado!");
+function test(data: FormData){
+    console.log(data);
 }
 
 function CreateProfilePage(){
@@ -20,16 +23,31 @@ function CreateProfilePage(){
         return <p>Não está logado</p>;
     }
 
-    const steps: FormStep[] = [
+    const steps: FormStep<FormData>[] = [
         {
             component: BasicData,
-            fields: []
+            fields: ["firstName", "lastName", "birthday", "gender"]
         },
         {
             component: PerfilData,
-            fields: []
+            fields: ["nickName", "description", "profileImage"]
         }
     ]
+
+    type FormData = z.infer<typeof schema>
+
+    const form = useForm<FormData>({
+        resolver: zodResolver(schema),
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            birthday: "",
+            gender: "UNDEFINED",
+            description: "",
+            nickName: "",
+            profileImage: undefined
+        }
+    })
 
     return (
         <main className="allScreen">
@@ -39,6 +57,7 @@ function CreateProfilePage(){
                 <FormMultiStep 
                     steps={steps}
                     onSubmit={test}
+                    form={form}
                 />    
             </SimpleContainer>  
         </main>

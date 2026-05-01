@@ -48,12 +48,15 @@ function BasicData({ form }: any){
 
             <Controller
                 control={form.control}
-                name="genero"
-                render={({ field }) => (
+                name="gender"
+                defaultValue={"UNDEFINED"}
+                render={({field}) => (
                     <SelectInput
                         options={genders}
                         textLabel="Gênero"
-                        name="genero"
+                        name="gender"
+                        onChange={field.onChange}
+                        value={field.value}
                     />
                 )}
             />

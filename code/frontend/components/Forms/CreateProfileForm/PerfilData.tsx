@@ -23,7 +23,7 @@ function PerfilData({ form }: any){
 
             <Controller
                 control={form.control}
-                name="descripition"
+                name="description"
                 render={({ field }) => (
                     <TextAreaInput
                         labelSide="cima"

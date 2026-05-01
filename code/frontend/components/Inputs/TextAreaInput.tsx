@@ -1,5 +1,3 @@
-"use client";
-import textInputProps from "@/types/textInputProps";
 import styles from "./Inputs.module.css"
 import textAreaInputProps from "@/types/textAreaInputProp";
 
