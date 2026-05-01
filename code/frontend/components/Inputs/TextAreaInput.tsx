@@ -1,10 +1,11 @@
 "use client";
 import textInputProps from "@/types/textInputProps";
 import styles from "./Inputs.module.css"
+import textAreaInputProps from "@/types/textAreaInputProp";
 
 function TextAreaInput({
-        labelText, labelSide, inputId, inputName, aviso, placeholder
-    } : textInputProps){
+        labelText, labelSide, inputId, inputName, aviso, placeholder, value, onChange
+    } : textAreaInputProps){
     return (
         <label className={styles.textLabel}>
             <div className={`${styles.maintextInputArea} 
@@ -18,6 +19,8 @@ function TextAreaInput({
                     rows={4} 
                     cols={50}
                     className={styles.textInput}
+                    value={value}
+                    onChange={onChange}
                 ></textarea>
             </div>
             {aviso ? <p className={styles.aviso} >* {aviso}</p> : ""}            

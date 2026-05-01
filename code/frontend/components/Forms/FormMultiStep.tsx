@@ -16,15 +16,16 @@ export function FormMultiStep({steps, onSubmit} : MultiStepFormProps){
     const [stepIndex, setStepIndex] = useState<number>(0);
 
     const form = useForm({
-        mode: "onTouched"
+        mode: "onTouched",
+        shouldUnregister: false
     });
 
     const CurrentStep = steps[stepIndex].component;
 
     async function next() {
-        const fields = steps[stepIndex].fields
-        const valid = await form.trigger(fields)
-        if (!valid) return
+        const isValid = await form.trigger(); 
+        if (!isValid) return;
+        
         setStepIndex((i) => i + 1)
     }
 

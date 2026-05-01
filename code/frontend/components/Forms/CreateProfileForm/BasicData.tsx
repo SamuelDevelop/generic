@@ -2,14 +2,11 @@ import DateInput from "@/components/Inputs/DateInput";
 import SelectInput from "@/components/Inputs/SelectInput";
 import TextInput from "@/components/Inputs/TextInput";
 import OptionProps from "@/types/OptionsProps";
-import { useState } from "react";
+import { Controller } from "react-hook-form";
 
-function BasicData(){
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+function BasicData({ form }: any){
     const today = new Date().toISOString().slice(0, 10);
-    const [date, setDate] = useState(today);
-    
+
     const genders : OptionProps[] = [
         {text: "Masculino", value: "MALE"},
         {text: "Feminino", value: "FEMALE"},
@@ -19,34 +16,59 @@ function BasicData(){
   
     return (
         <section>
-            <TextInput 
-                labelSide="lateral"
-                labelText="Primeiro Nome"
-                placeholder="primeiro nome..."
-                aviso="esse será o nome do seu perfil"
-                onChange={(e : any) => setFirstName(e.target.value)}
-                inputValue={firstName}
+            <Controller
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                    <TextInput 
+                        labelSide="lateral"
+                        labelText="Primeiro Nome"
+                        placeholder="primeiro nome..."
+                        aviso="esse será o nome do seu perfil"
+                        onChange={field.onChange}
+                        inputValue={field.value}
+                    />
+                )}
+            />
+            
+            <Controller 
+                control={form.control}
+                name="lastName"  
+                render={({field}) => (
+                    <TextInput 
+                        labelSide="lateral"
+                        labelText="Sobrenome"
+                        placeholder="sobrenome..."
+                        aviso="esse será o sobrenome do seu perfil"
+                        onChange={field.onChange}
+                        inputValue={field.value}
+                    />
+                )}           
             />
 
-            <TextInput 
-                labelSide="lateral"
-                labelText="Sobrenome"
-                placeholder="sobrenome..."
-                aviso="esse será o sobrenome do seu perfil"
-                onChange={(e : any) => setLastName(e.target.value)}
-                inputValue={lastName}
-            />
-
-            <SelectInput
-                options={genders}
-                textLabel="Gênero"
+            <Controller
+                control={form.control}
                 name="genero"
+                render={({ field }) => (
+                    <SelectInput
+                        options={genders}
+                        textLabel="Gênero"
+                        name="genero"
+                    />
+                )}
             />
 
-            <DateInput
-                labelText="Data de Nascimento:"
-                value={date}
-                onChange={setDate}
+            <Controller
+                control={form.control}
+                name="birthday"
+                defaultValue={today}
+                render={({ field }) => (
+                    <DateInput
+                        labelText="Data de Nascimento:"
+                        value={field.value}
+                        onChange={field.onChange}
+                    />
+                )}
             />
         </section>
     )

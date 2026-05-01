@@ -1,7 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-function ImageUpload() {
+function ImageUpload({ value, onChange }: any) {
   const [preview, setPreview] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!value) {
+      setPreview(null)
+      return
+    }
+
+    const url = URL.createObjectURL(value)
+    setPreview(url)
+
+    return () => URL.revokeObjectURL(url)
+  }, [value])
 
   return (
     <>
@@ -11,8 +23,7 @@ function ImageUpload() {
         onChange={e => {
           const file = e.target.files?.[0]
           if (file) {
-            const url = URL.createObjectURL(file)
-            setPreview(url)
+            onChange(file)
           }
         }}
       />
@@ -22,4 +33,4 @@ function ImageUpload() {
   )
 }
 
-export default ImageUpload;
+export default ImageUpload

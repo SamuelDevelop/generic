@@ -8,4 +8,6 @@ export function useCreateProfile(){
     const [lastName, setLastName] = useState("");
     const today = new Date().toISOString().slice(0, 10);
     const [date, setDate] = useState(today);
+
+    
 }

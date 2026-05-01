@@ -2,30 +2,53 @@ import ImageUpload from "@/components/Inputs/ImageInput";
 import TextAreaInput from "@/components/Inputs/TextAreaInput";
 import TextInput from "@/components/Inputs/TextInput";
 import { useState } from "react";
+import { Controller } from "react-hook-form";
 
-function PerfilData(){
-    const [nickName, setNickName] = useState<string>("");
-    
+function PerfilData({ form }: any){   
     return(
         <section>
-            <TextInput
-                labelSide="lateral"
-                labelText="Apelido na plataforma"
-                onChange={(e : any) => setNickName(e.target.value)}
-                inputValue={nickName}
-                aviso="Ele é único e não pode ser o mesmo em outro perfil"
+            <Controller
+                control={form.control}
+                name="nickName"
+                render={({ field }) => (
+                    <TextInput
+                        labelSide="lateral"
+                        labelText="Apelido na plataforma"
+                        onChange={field.onChange}
+                        inputValue={field.value}
+                        aviso="Ele é único e não pode ser o mesmo em outro perfil"
+                    />
+                )}
             />
 
-            <TextAreaInput
-                labelSide="cima"
-                labelText="Sua descrição Pessoal"
-                placeholder="fale dos seus gostos, profissões e sonhos genéricos"
-                aviso="ela estará visivel para todos os perfis"
+            <Controller
+                control={form.control}
+                name="descripition"
+                render={({ field }) => (
+                    <TextAreaInput
+                        labelSide="cima"
+                        labelText="Sua descrição Pessoal"
+                        placeholder="fale dos seus gostos, profissões e sonhos genéricos"
+                        aviso="ela estará visivel para todos os perfis"
+                        value={field.value}
+                        onChange={field.onChange}
+                    />
+                )}
             />
+            
 
             <label>
                 <p>Foto de Perfil (opcional):</p>
-                <ImageUpload/>
+                <Controller
+                    control={form.control}
+                    name="profileImage"
+                    render={({ field }) => (
+                        <ImageUpload
+                            onChange={field.onChange}
+                            value={field.value}
+                        />
+                    )}
+                />
             </label>
         </section>
     )

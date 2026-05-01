@@ -39,7 +39,7 @@ function StartInGeneric(){
                                 
                 <Button
                     variant="comum"
-                    onClick={() => router.push("/register")}
+                    onClick={() => router.push("/login")}
                 >
                     <p><FaSailboat /></p>
                     <p>Navegar</p>
