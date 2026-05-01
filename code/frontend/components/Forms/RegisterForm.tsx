@@ -5,8 +5,11 @@ import Button from "../Button/Button";
 import TextInput from "../Inputs/TextInput";
 import FormFields from "./FormFields";
 import styles from "./Forms.module.css"
+import { useRouter } from "next/navigation";
 
 function RegisterForm(){
+    const router = useRouter();
+    
     const {
         nome,
         setNome,
@@ -24,7 +27,7 @@ function RegisterForm(){
         const sucesso = await submit();
 
         if(sucesso){
-            console.log("Usuário registrado");
+            router.replace("/login");
         }
     }
 

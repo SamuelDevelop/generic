@@ -47,6 +47,8 @@ export function useRegister(){
             setErro("Problema ao registrar usuário");
             return false;
         }
+
+        return true
     }
 
     return {
