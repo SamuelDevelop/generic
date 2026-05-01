@@ -14,14 +14,14 @@ export const schema = z.object({
   nickName: z.string(),
 
   imagem: z
-    .any()
-    .optional()
-    .refine(files => {
-      if (!files || files.length === 0) return true
-      return files[0].size <= 10 * 1024 * 1024
-    }, "Máximo: 10MB")
-    .refine(files => {
-      if (!files || files.length === 0) return true
-      return ["image/jpeg", "image/png"].includes(files[0].type)
-    }, "Formato inválido")
+  .instanceof(File)
+  .optional()
+  .refine(file => {
+    if (!file) return true
+    return file.size <= 10 * 1024 * 1024
+  }, "Máximo: 10MB")
+  .refine(file => {
+    if (!file) return true
+    return ["image/jpeg", "image/png"].includes(file.type)
+  }, "Formato inválido")
 })

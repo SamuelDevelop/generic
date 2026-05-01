@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import { useForm } from "react-hook-form"
+import { DefaultValues, Resolver, useForm } from "react-hook-form"
 
 import styles from "./FormMultiStep.module.css"
 import Button from "../Button/Button"
@@ -10,6 +10,8 @@ import FormStep from "@/types/FormSteptype"
 type MultiStepFormProps = {
     steps: FormStep[],
     onSubmit: (data: any)=> void
+    defaultValues?: DefaultValues<T>
+    resolver?: Resolver<T>
 }
 
 export function FormMultiStep({steps, onSubmit} : MultiStepFormProps){
@@ -23,9 +25,10 @@ export function FormMultiStep({steps, onSubmit} : MultiStepFormProps){
     const CurrentStep = steps[stepIndex].component;
 
     async function next() {
-        const isValid = await form.trigger(); 
+        const fields = steps[stepIndex].fields;
+        const isValid = await form.trigger(fields); 
         if (!isValid) return;
-        
+
         setStepIndex((i) => i + 1)
     }
 
