@@ -15,6 +15,19 @@ function test(data: FormData){
 }
 
 function CreateProfilePage(){
+    const form = useForm<FormData>({
+        resolver: zodResolver(schema),
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            birthday: "",
+            gender: "UNDEFINED",
+            description: "",
+            nickName: "",
+            profileImage: undefined
+        }
+    })
+
     const { user, logged, loading } = useAuth();
 
     if (loading) return <p>Carregando...</p>;
@@ -35,19 +48,6 @@ function CreateProfilePage(){
     ]
 
     type FormData = z.infer<typeof schema>
-
-    const form = useForm<FormData>({
-        resolver: zodResolver(schema),
-        defaultValues: {
-            firstName: "",
-            lastName: "",
-            birthday: "",
-            gender: "UNDEFINED",
-            description: "",
-            nickName: "",
-            profileImage: undefined
-        }
-    })
 
     return (
         <main className="allScreen">
