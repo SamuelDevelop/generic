@@ -1,0 +1,12 @@
+.imageLabel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .2rem;
+}
+
+.sideFields{
+    display: flex;
+    flex-direction: row;
+    gap: .5rem
+}

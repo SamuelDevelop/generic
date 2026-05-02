@@ -1,5 +1,27 @@
+.currentStep{
+    padding: 1rem 0;
+}
+
 .multiStepActions{
     display: flex;
     flex-direction: row;
     gap: .5rem;
+}
+.progressBar, .currentProgress{
+    height: .5rem;
+    border-radius: 1rem;
+}
+
+.progressBar{
+    width: 100%;    
+    background-color: rgba(128, 128, 128, 0.247);
+}
+
+.currentProgress{
+    background-color: var(--blueColor);
+    transition: 500ms ease-in-out all;
+}
+
+.mensage{
+    padding: .6rem 0 0 0;
 }

@@ -35,7 +35,7 @@ function CreateProfilePage(){
             firstName: "",
             lastName: "",
             birthday: "",
-            gender: "UNDEFINED",
+            gender: "MALE",
             description: "",
             nickName: "",
             profileImage: undefined
@@ -62,16 +62,17 @@ function CreateProfilePage(){
     ]
 
     type FormData = z.infer<typeof schema>
-
+    const mensage = `${user.name} agora vamos criar um perfil pessoal.`;
     return (
         <main className="allScreen">
             <SimpleContainer>
-                <h1>Estamos quase lá...</h1>
-                <p>{user.name} agora vamos criar um perfil pessoal.</p>
+                <h1>Vamos criar seu perfil pessoal</h1>
+
                 <FormMultiStep 
                     steps={steps}
                     onSubmit={submit}
                     form={form}
+                    mensage={mensage}
                 />    
             </SimpleContainer>  
         </main>

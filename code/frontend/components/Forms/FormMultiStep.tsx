@@ -11,12 +11,14 @@ type MultiStepFormProps<T extends FieldValues> = {
     steps: FormStep<T>[],
     onSubmit: (data: any)=> void
     form: UseFormReturn<T>
+    mensage?: string
 }
 
-export function FormMultiStep<T extends FieldValues>({steps, onSubmit, form} : MultiStepFormProps<T>){
+export function FormMultiStep<T extends FieldValues>({steps, onSubmit, form, mensage} : MultiStepFormProps<T>){
     const [stepIndex, setStepIndex] = useState<number>(0);
 
     const CurrentStep = steps[stepIndex].component;
+    const currentWidth = Math.round((stepIndex + 1)/steps.length * 100);
 
     async function next() {
         const fields = steps[stepIndex].fields;
@@ -31,10 +33,25 @@ export function FormMultiStep<T extends FieldValues>({steps, onSubmit, form} : M
     }
 
     return(
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-            <p>Progresso: {stepIndex + 1}/{steps.length}</p>
+        <form onSubmit={form.handleSubmit(onSubmit)}>            
+            <div className={styles.progressBar}>
+                <div
+                    className={styles.currentProgress}
+                    style={{ width: `${currentWidth}%` }}
+                >
+                </div>
+            </div>
+
+            {
+                mensage ?
+                <p className={styles.mensage}>{mensage}</p>
+                : ""
+            }
             
-            <CurrentStep {...steps[stepIndex].props} form={form} />
+            <section className={styles.currentStep}>
+                <CurrentStep {...steps[stepIndex].props} form={form} />
+            </section>
+            
 
             <section className={styles.multiStepActions}>
                 {stepIndex > 0 && (

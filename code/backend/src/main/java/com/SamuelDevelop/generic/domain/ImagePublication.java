@@ -11,7 +11,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ImagePublication extends Publication{
-
     @Column(nullable = false, columnDefinition = "bytea")
     private byte[] image;
 

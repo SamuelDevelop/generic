@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import styles from "./Inputs.module.css";
 
 function ImageUpload({ value, onChange }: any) {
   const [preview, setPreview] = useState<string | null>(null)
@@ -28,7 +29,7 @@ function ImageUpload({ value, onChange }: any) {
         }}
       />
 
-      {preview && <img src={preview} alt="" width={200} />}
+      {preview && <img src={preview} alt="" width={200} className={styles.imagePreview}/>}
     </>
   )
 }

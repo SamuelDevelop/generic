@@ -1,4 +1,4 @@
-.textLabel{
+.textLabel, .selectLabel, .dataLabel{
     width: 100%;
     box-sizing: border-box;
     
@@ -10,20 +10,48 @@
     padding: .2rem;
 }
 
+.textInput, .selectInput, .dateInput{
+    border-radius: var(--comumBorderRadius);
+}
+
 .textInput{
     box-sizing: border-box;
-
     color: white;
     background-color: transparent;
     border: 1px solid gray;
-    border-radius: .5rem;
     padding: .5rem 2rem .5rem 1rem;
+}
+
+.selectInput{
+    box-sizing: border-box;
+    color: white;
+    background-color: transparent;
+    border: 1px solid gray;
+    padding: .4rem 1rem;
+    cursor: pointer;
+}
+
+.selectInput:hover, .dateInput:hover{
+    background-color: var(--blueColor);
+}
+
+.option {
+  background-color: var(--darkColor);
+  color: white;
+}
+
+.dateInput{
+    background-color: transparent;
+    color: white;
+    padding: .4rem 1rem;
+    border: 1px solid gray;
+    cursor: pointer;
 }
 
 .maintextInputArea{
     display: flex;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
     gap: .5rem;
 }
 
@@ -33,10 +61,23 @@
 
 .cima{
     flex-direction: column;
-    align-items: center;
+    gap: .3rem;
+    align-items: flex-start;
 }
 
 .aviso{
     font-size: .8rem;
     opacity: 0.8;
+    transform: all ease-in-out 50ms;
+}
+
+.aviso:hover{
+    opacity: 1;
+}
+
+.imagePreview{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 2px #47474775;
 }

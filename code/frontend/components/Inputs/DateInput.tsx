@@ -1,3 +1,5 @@
+import styles from "./Inputs.module.css";
+
 type DateInputProps = {
   value: string
   onChange: (value: string) => void
@@ -6,12 +8,13 @@ type DateInputProps = {
 
 export function DateInput({ value, onChange, labelText }: DateInputProps) {
   return (
-    <label>
+    <label className={styles.dataLabel}>
         <p>{labelText}:</p>
         <input
-        type="date"
-        value={value}
-        onChange={e => onChange(e.target.value)}
+          type="date"
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          className={styles.dateInput}
         />
     </label>
     

@@ -1,4 +1,5 @@
 import OptionProps from "@/types/OptionsProps"
+import styles from "./Inputs.module.css"
 
 type SelectInputProps = {
     options: OptionProps[],
@@ -11,18 +12,20 @@ type SelectInputProps = {
 
 function SelectInput({options, textLabel, name, aviso, onChange, value} : SelectInputProps){
     return(
-        <label>
+        <label className={styles.selectLabel}>
             <p>{textLabel}:</p>
             <select 
                 name={name} 
                 value={value} 
                 onChange={onChange}
+                className={styles.selectInput}
             >
                 {
                     options.map((op, index) =>
                         <option 
                             key={index}
                             value={op.value} 
+                            className={styles.option}
                         >
                             {op.text}
                         </option>
