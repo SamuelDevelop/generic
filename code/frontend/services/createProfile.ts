@@ -1,40 +1,36 @@
 import { apiFetch } from "./api"
 import { getUserLogged } from "./userService";
 
-export async function requestRegister(data : {
+export async function requestCreateProfile(data : {
     firstName: string,
     lastName: string,
     birthday: Date,
-    gender: "MALE" | "FEMALE" | "NONBINARY" | "NOTINFORMED",
-
+    gender: "MALE" | "FEMALE" | "NONBINARY" | "NOTINFORMED" | "UNDEFINED",
     description: string,
     nickName: string,
-    profileImage: File
+    profileImage?: File | undefined
 }) {
     const loggedUser = await getUserLogged();
+    const formData = new FormData();
+
+    formData.append("userLogin", loggedUser.login);
+    formData.append("nickName", data.nickName);
+    formData.append("firstName", data.firstName);
+    formData.append("lastName", data.lastName);
+    formData.append("description", data.description);
+    formData.append("gender", data.gender);
+    formData.append("birthday", data.birthday.toISOString().split("T")[0]);
+
+    if (data.profileImage) {
+        formData.append("personalImage", data.profileImage);
+    }
     
-    const response = await apiFetch("/profile/create",
-        {
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                userId: loggedUser.id,
-                nickName: data.nickName,
-                firstName: data.firstName,
-                lastName: data.lastName,
-                description: data.description,
-                gender: data.gender,
-                birthday: data.birthday,
-                personalImage: data.profileImage
-            })
-        }
-    )
+    const response = await apiFetch("/profile/create", {
+        method: "POST",
+        body: formData
+    });
 
     if(!response.ok){
-        throw new Error("Erro ao Cadstrar");
+        throw new Error("Erro ao Criar Perfil");
     }
 }

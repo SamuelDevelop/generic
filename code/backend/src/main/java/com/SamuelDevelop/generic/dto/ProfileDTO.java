@@ -1,19 +1,18 @@
 package com.SamuelDevelop.generic.dto;
 
-import java.time.LocalDate;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.SamuelDevelop.generic.enums.Gender;
 
 public record ProfileDTO(
-    long userId,
-    long profileId,
+    String userLogin,
     String nickName,
     String firstName,
     String lastName,
     String description,
-    byte[] personalImage,
+    MultipartFile personalImage,
     Gender gender,
-    LocalDate birthday
+    String birthday
 ) {
     
 }

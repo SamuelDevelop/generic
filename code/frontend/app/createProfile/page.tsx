@@ -9,13 +9,27 @@ import { useForm } from "react-hook-form";
 import { schema } from "@/components/Forms/CreateProfileForm/formSchema"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { requestCreateProfile } from "@/services/createProfile";
 
-function test(data: FormData){
-    console.log(data);
+type DadosFormulario = z.infer<typeof schema>
+
+async function submit(data: DadosFormulario){
+    
+    if(data.gender === "UNDEFINED"){
+        throw new Error("Selecione um gênero válido");
+    }
+
+    const response = await requestCreateProfile({
+        ...data,
+        birthday: new Date(data.birthday),
+        gender: data.gender
+    });
+
+    console.log(response);
 }
 
 function CreateProfilePage(){
-    const form = useForm<FormData>({
+    const form = useForm<DadosFormulario>({
         resolver: zodResolver(schema),
         defaultValues: {
             firstName: "",
@@ -56,7 +70,7 @@ function CreateProfilePage(){
                 <p>{user.name} agora vamos criar um perfil pessoal.</p>
                 <FormMultiStep 
                     steps={steps}
-                    onSubmit={test}
+                    onSubmit={submit}
                     form={form}
                 />    
             </SimpleContainer>  

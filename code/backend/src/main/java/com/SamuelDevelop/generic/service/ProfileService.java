@@ -1,28 +1,46 @@
 package com.SamuelDevelop.generic.service;
 
+import java.io.IOException;
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.SamuelDevelop.generic.domain.Profile;
-import com.SamuelDevelop.generic.domain.ProfileId;
+import com.SamuelDevelop.generic.domain.Users;
 import com.SamuelDevelop.generic.dto.ProfileDTO;
+import com.SamuelDevelop.generic.exception.UserNotFoundException;
+import com.SamuelDevelop.generic.repostories.UserRepository;
 
 @Service
 public class ProfileService {
-    
+
+    @Autowired
+    private UserRepository repository;
+
     public Profile toEntity(ProfileDTO dto){
         Profile entity = new Profile();
-        ProfileId id = new ProfileId();
-        id.setProfileId(dto.profileId());
-        id.setUserId(dto.userId());
+        
+        Users user = (Users) this.repository.findByLogin(dto.userLogin());
 
-        entity.setId(id);
+        if(user == null){
+            throw new UserNotFoundException("Em ProfileService em toEntity");
+        }
+        
+        entity.setUser(user);
         entity.setNickName(dto.nickName());
         entity.setFirstName(dto.firstName());
         entity.setLastName(dto.lastName());
         entity.setDescription(dto.description());
-        entity.setBirthday(dto.birthday());
+        entity.setBirthday(LocalDate.parse(dto.birthday()));
         entity.setGender(dto.gender());
-        entity.setPersonalImage(dto.personalImage());
+        if (dto.personalImage() != null && !dto.personalImage().isEmpty()) {
+            try {
+                entity.setProfileImage(dto.personalImage().getBytes());
+            } catch (IOException e) {
+                throw new RuntimeException("Erro ao processar imagem");
+            }
+        }
 
         return entity;
     }

@@ -4,8 +4,6 @@ export async function requestLogin(data : {
     login : string,
     password : string
 }) {
-
-    console.log(JSON.stringify(data));
     
     const response = await apiFetch("/auth/login", {
         method: "POST",

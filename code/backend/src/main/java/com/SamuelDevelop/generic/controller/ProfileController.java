@@ -1,16 +1,18 @@
 package com.SamuelDevelop.generic.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SamuelDevelop.generic.domain.Profile;
 import com.SamuelDevelop.generic.dto.ProfileDTO;
+import com.SamuelDevelop.generic.exception.ProfileNotFoundException;
 import com.SamuelDevelop.generic.repostories.ProfileRepository;
 import com.SamuelDevelop.generic.service.ProfileService;
 
@@ -26,21 +28,22 @@ public class ProfileController {
     @Autowired
     private ProfileService service;
 
+    @GetMapping("{nickName}")
+    public Profile getProfileByNickName(@PathVariable String nickName){
+        return repository.findByNickName(nickName);
+    }
+    
     @GetMapping("{id}")
-    public Profile getProfileById(@PathVariable Long id){
-        return repository.findByIdProfileId(id);
+    public Profile getProfileById(@PathVariable long id){
+        return repository.findById(id)
+            .orElseThrow(() -> new ProfileNotFoundException());
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createProfile(@RequestBody @Valid ProfileDTO dto){
+    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> createProfile(@ModelAttribute @Valid ProfileDTO dto){
         Profile profile = service.toEntity(dto);
 
-        if(this.repository.findByIdUserId(dto.userId()) != null){
-            return ResponseEntity.badRequest().build();
-        }
-
         this.repository.save(profile);
-
         return ResponseEntity.ok().build();
     }
 
