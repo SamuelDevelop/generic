@@ -3,8 +3,8 @@ package com.SamuelDevelop.generic.repostories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.SamuelDevelop.generic.domain.Users;
+import com.SamuelDevelop.generic.entity.User;
 
-public interface UserRepository extends JpaRepository<Users, String>{
+public interface UserRepository extends JpaRepository<User, String>{
     UserDetails findByLogin(String login);    
 }

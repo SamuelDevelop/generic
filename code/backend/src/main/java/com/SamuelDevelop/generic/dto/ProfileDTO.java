@@ -2,7 +2,7 @@ package com.SamuelDevelop.generic.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.SamuelDevelop.generic.enums.Gender;
+import com.SamuelDevelop.generic.enumeration.Gender;
 
 public record ProfileDTO(
     String userLogin,

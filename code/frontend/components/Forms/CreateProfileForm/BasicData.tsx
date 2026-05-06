@@ -48,7 +48,6 @@ function BasicData({ form }: any){
                     )}           
                 />
             </div>
-            
 
             <div className={styles.sideFields}>
                 <Controller

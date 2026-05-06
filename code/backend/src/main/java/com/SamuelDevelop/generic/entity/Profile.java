@@ -1,8 +1,8 @@
-package com.SamuelDevelop.generic.domain;
+package com.SamuelDevelop.generic.entity;
 
 import java.time.LocalDate;
 
-import com.SamuelDevelop.generic.enums.Gender;
+import com.SamuelDevelop.generic.enumeration.Gender;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,12 +13,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name= "profiles")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,7 +33,7 @@ public class Profile {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user;
+    private User user;
 
     @Column(unique = true)
     private String nickName;

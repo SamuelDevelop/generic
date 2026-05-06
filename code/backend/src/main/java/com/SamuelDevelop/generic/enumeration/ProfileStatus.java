@@ -1,4 +1,4 @@
-package com.SamuelDevelop.generic.enums;
+package com.SamuelDevelop.generic.enumeration;
 
 public enum ProfileStatus {
     ACTIVE,

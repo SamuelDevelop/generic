@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.SamuelDevelop.generic.domain.Profile;
-import com.SamuelDevelop.generic.domain.Users;
 import com.SamuelDevelop.generic.dto.ProfileDTO;
+import com.SamuelDevelop.generic.entity.Profile;
+import com.SamuelDevelop.generic.entity.User;
 import com.SamuelDevelop.generic.exception.UserNotFoundException;
 import com.SamuelDevelop.generic.repostories.UserRepository;
 
@@ -21,7 +21,7 @@ public class ProfileService {
     public Profile toEntity(ProfileDTO dto){
         Profile entity = new Profile();
         
-        Users user = (Users) this.repository.findByLogin(dto.userLogin());
+        User user = (User) this.repository.findByLogin(dto.userLogin());
 
         if(user == null){
             throw new UserNotFoundException("Em ProfileService em toEntity");

@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SamuelDevelop.generic.domain.Users;
 import com.SamuelDevelop.generic.dto.AuthenticationDTO;
 import com.SamuelDevelop.generic.dto.RegisterDTO;
 import com.SamuelDevelop.generic.dto.UserResponseDTO;
+import com.SamuelDevelop.generic.entity.User;
 import com.SamuelDevelop.generic.repostories.UserRepository;
 import com.SamuelDevelop.generic.service.TokenService;
 
@@ -41,7 +41,7 @@ public class AuthenticationController {
         var usernamePasword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = authenticationManager.authenticate(usernamePasword);
 
-        var token = tokenService.generateToken((Users) auth.getPrincipal());
+        var token = tokenService.generateToken((User) auth.getPrincipal());
 
         ResponseCookie cookie = ResponseCookie.from("token", token)
             .httpOnly(true)
@@ -62,7 +62,7 @@ public class AuthenticationController {
         }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        Users newUser = new Users(data.login(), encryptedPassword, data.name(), data.role());
+        User newUser = new User(data.login(), encryptedPassword, data.name(), data.role());
 
         this.repository.save(newUser);
 
@@ -75,7 +75,7 @@ public class AuthenticationController {
             return ResponseEntity.status(401).build();
         }
 
-        Users user = (Users) authentication.getPrincipal();
+        User user = (User) authentication.getPrincipal();
 
         UserResponseDTO userDTO = new UserResponseDTO(
             user.getLogin(),

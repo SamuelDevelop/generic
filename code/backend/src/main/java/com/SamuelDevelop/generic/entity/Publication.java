@@ -1,10 +1,10 @@
-package com.SamuelDevelop.generic.domain;
+package com.SamuelDevelop.generic.entity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.SamuelDevelop.generic.enums.PublicationVisibility;
+import com.SamuelDevelop.generic.enumeration.PublicationVisibility;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,6 +19,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ import lombok.Setter;
 
 
 @Entity
+@Table(name = "publications")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
@@ -43,7 +45,7 @@ public class Publication {
 
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    private Users author;
+    private User author;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -57,9 +59,9 @@ public class Publication {
         joinColumns = @JoinColumn(name = "post_id"),
         inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<Users> collaborators = new ArrayList<>();
+    private List<User> collaborators = new ArrayList<>();
 
-    Publication(Users author, LocalDateTime publicationDate, PublicationVisibility visibility){
+    Publication(User author, LocalDateTime publicationDate, PublicationVisibility visibility){
         this.author = author;
         this.publicationDate = publicationDate;
         this.visibility = visibility;
@@ -67,7 +69,7 @@ public class Publication {
     }
 
     
-    Publication(Users author, LocalDateTime publicationDate, PublicationVisibility visibility, String description){
+    Publication(User author, LocalDateTime publicationDate, PublicationVisibility visibility, String description){
         this.author = author;
         this.publicationDate = publicationDate;
         this.visibility = visibility;

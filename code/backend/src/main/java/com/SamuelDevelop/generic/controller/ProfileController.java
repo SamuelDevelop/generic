@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SamuelDevelop.generic.domain.Profile;
 import com.SamuelDevelop.generic.dto.ProfileDTO;
+import com.SamuelDevelop.generic.entity.Profile;
 import com.SamuelDevelop.generic.exception.ProfileNotFoundException;
 import com.SamuelDevelop.generic.repostories.ProfileRepository;
 import com.SamuelDevelop.generic.service.ProfileService;

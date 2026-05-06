@@ -1,4 +1,4 @@
-package com.SamuelDevelop.generic.domain;
+package com.SamuelDevelop.generic.entity;
 
 import java.util.Collection;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.SamuelDevelop.generic.enums.UserRole;
+import com.SamuelDevelop.generic.enumeration.UserRole;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,17 +16,19 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users implements UserDetails{
+public class User implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true)
@@ -45,7 +47,7 @@ public class Users implements UserDetails{
     @Column(nullable = false)
     private UserRole role;
 
-    public Users(String login, String password, String name, UserRole role){
+    public User(String login, String password, String name, UserRole role){
         this.login = login;
         this.password = password;
         this.name = name;
