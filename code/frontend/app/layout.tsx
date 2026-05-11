@@ -36,6 +36,18 @@ const fontPoltawski = localFont({
   variable: "--fontPoltawski" 
 });
 
+const fontDomine = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Domine.ttf",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
+  
+  variable: "--fontDomine" 
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,7 +56,11 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${fontInter.variable} ${fontPoltawski.variable}`}
+      className={`
+        ${fontInter.variable} 
+        ${fontPoltawski.variable}
+        ${fontDomine.variable}
+      `}
     >
       <body>
         <AuthProvider>
