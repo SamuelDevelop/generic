@@ -14,8 +14,8 @@ function TextAreaInput({
                     id={inputId ?? ""}
                     name={inputName ?? ""}
                     placeholder={placeholder ?? ""}
-                    rows={4} 
-                    cols={50}
+                    rows={1} 
+                    cols={60}
                     className={styles.textInput}
                     value={value}
                     onChange={onChange}

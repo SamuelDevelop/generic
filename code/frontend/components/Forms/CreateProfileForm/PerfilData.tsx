@@ -6,7 +6,7 @@ import styles from "./CreateProfile.module.css"
 
 function PerfilData({ form }: any){   
     return(
-        <section>
+        <section className={styles.perfilData}>
             <Controller
                 control={form.control}
                 name="nickName"
@@ -21,7 +21,7 @@ function PerfilData({ form }: any){
                     />
                 )}
             />
-
+            
             <Controller
                 control={form.control}
                 name="description"
@@ -30,13 +30,11 @@ function PerfilData({ form }: any){
                         labelSide="cima"
                         labelText="Sua descrição Pessoal"
                         placeholder="fale dos seus gostos, profissões e sonhos genéricos"
-                        aviso="ela estará visivel para todos os perfis"
                         value={field.value}
                         onChange={field.onChange}
                     />
                 )}
-            />
-            
+            />           
 
             <label className={styles.imageLabel}>
                 <p>Foto de Perfil (opcional):</p>

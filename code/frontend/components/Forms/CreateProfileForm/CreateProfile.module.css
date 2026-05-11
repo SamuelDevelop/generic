@@ -10,3 +10,10 @@
     flex-direction: row;
     gap: .5rem
 }
+
+.perfilData, .basicData{
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.2rem;
+}

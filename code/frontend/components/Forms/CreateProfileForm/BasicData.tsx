@@ -16,7 +16,7 @@ function BasicData({ form }: any){
     ]
   
     return (
-        <section>
+        <section className={styles.basicData}>
             <div className={styles.sideFields}>
                 <Controller
                     control={form.control}
@@ -26,12 +26,12 @@ function BasicData({ form }: any){
                             labelSide="lateral"
                             labelText="Primeiro Nome"
                             placeholder="primeiro nome..."
-                            aviso="esse será o nome do seu perfil"
                             onChange={field.onChange}
                             inputValue={field.value}
                         />
                     )}
                 />
+                
                 
                 <Controller 
                     control={form.control}
@@ -41,7 +41,6 @@ function BasicData({ form }: any){
                             labelSide="lateral"
                             labelText="Sobrenome"
                             placeholder="sobrenome..."
-                            aviso="esse será o sobrenome do seu perfil"
                             onChange={field.onChange}
                             inputValue={field.value}
                         />
