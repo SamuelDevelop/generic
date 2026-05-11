@@ -1,5 +1,5 @@
 import { apiFetch } from "./api"
-import { error } from "./mensageHelpers";
+import { error, success } from "./mensageHelpers";
 import { getUserLogged } from "./userService";
 
 export async function requestCreateProfile(data : {
@@ -31,7 +31,11 @@ export async function requestCreateProfile(data : {
         body: formData
     });
 
-    if(!response.ok){
-        error(`${response}`)
+    if (!response.ok) {
+        const message = await response.text()
+
+        error(message)
+    } else {
+        success("Perfil Criado!")
     }
 }
