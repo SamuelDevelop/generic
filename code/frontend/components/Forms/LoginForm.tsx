@@ -7,6 +7,7 @@ import FormFields from "./FormFields";
 import styles from "./Forms.module.css"
 import { useRouter } from "next/navigation";
 import { error, success } from "@/services/mensageHelpers";
+import { getProfilesByLoggedUser } from "@/services/findUserProfile";
 
 function LoginForm(){
     const router = useRouter();
