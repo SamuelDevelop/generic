@@ -1,4 +1,5 @@
 import { apiFetch } from "./api"
+import { error } from "./mensageHelpers";
 import { getUserLogged } from "./userService";
 
 export async function requestCreateProfile(data : {
@@ -31,6 +32,6 @@ export async function requestCreateProfile(data : {
     });
 
     if(!response.ok){
-        throw new Error("Erro ao Criar Perfil");
+        error(`${response}`)
     }
 }

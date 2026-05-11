@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 
 import "./globals.css";
 import { AuthProvider } from "@/components/authContext";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Generic",
@@ -65,6 +66,15 @@ export default function RootLayout({
       <body>
         <AuthProvider>
           {children}
+
+          <Toaster 
+            position="top-center"
+            richColors
+            closeButton
+            expand
+            duration={2500}
+            theme="dark"
+          />
         </AuthProvider>
       </body>
     </html>

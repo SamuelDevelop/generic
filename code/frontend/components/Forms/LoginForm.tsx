@@ -6,6 +6,7 @@ import TextInput from "../Inputs/TextInput";
 import FormFields from "./FormFields";
 import styles from "./Forms.module.css"
 import { useRouter } from "next/navigation";
+import { error, success } from "@/services/mensageHelpers";
 
 function LoginForm(){
     const router = useRouter();
@@ -25,7 +26,10 @@ function LoginForm(){
         const sucesso = await submit();
 
         if(sucesso){
+            success("Úsuario Logado");
             router.replace("/createProfile");
+        } else {
+            error(`${erro}`)
         }
     }
 
@@ -48,8 +52,6 @@ function LoginForm(){
                     onChange={(e : any) => setPassword(e.target.value)}        
                 /> 
             </FormFields>     
-
-            {erro && <p><i>{erro}</i></p>}     
 
             <Button type="submit" variant="comum"> Entrar </Button>     
         </form>

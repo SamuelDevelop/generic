@@ -6,6 +6,7 @@ import { DefaultValues, FieldValues, Resolver, useForm, UseFormReturn } from "re
 import styles from "./FormMultiStep.module.css"
 import Button from "../Button/Button"
 import FormStep from "@/types/FormSteptype"
+import { error } from "@/services/mensageHelpers"
 
 type MultiStepFormProps<T extends FieldValues> = {
     steps: FormStep<T>[],
@@ -23,7 +24,10 @@ export function FormMultiStep<T extends FieldValues>({steps, onSubmit, form, men
     async function next() {
         const fields = steps[stepIndex].fields;
         const isValid = await form.trigger(fields as any); 
-        if (!isValid) return;
+        if (!isValid) {
+            error("Preencha os campos Corretamente")
+            return;
+        }
 
         setStepIndex((i) => i + 1)
     }

@@ -10,13 +10,14 @@ import { schema } from "@/components/Forms/CreateProfileForm/formSchema"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { requestCreateProfile } from "@/services/createProfile";
+import { error } from "@/services/mensageHelpers";
 
 type DadosFormulario = z.infer<typeof schema>
 
 async function submit(data: DadosFormulario){
     
     if(data.gender === "UNDEFINED"){
-        throw new Error("Selecione um gênero válido");
+        error("Selecione um genero válido");
     }
 
     const response = await requestCreateProfile({
