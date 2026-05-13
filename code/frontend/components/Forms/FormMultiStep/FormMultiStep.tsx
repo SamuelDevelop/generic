@@ -4,7 +4,7 @@ import { useState } from "react"
 import { DefaultValues, FieldValues, Resolver, useForm, UseFormReturn } from "react-hook-form"
 
 import styles from "./FormMultiStep.module.css"
-import Button from "../Button/Button"
+import Button from "../../Button/Button"
 import FormStep from "@/types/FormSteptype"
 import { error } from "@/services/mensageHelpers"
 

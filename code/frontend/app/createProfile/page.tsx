@@ -2,7 +2,7 @@
 import { useAuth } from "@/components/authContext";
 import BasicData from "@/components/Forms/CreateProfileForm/BasicData";
 import PerfilData from "@/components/Forms/CreateProfileForm/PerfilData";
-import { FormMultiStep } from "@/components/Forms/FormMultiStep";
+import { FormMultiStep } from "@/components/Forms/FormMultiStep/FormMultiStep";
 import SimpleContainer from "@/components/SimpleContainer/SimpleContainer";
 import FormStep from "@/types/FormSteptype";
 import { useForm } from "react-hook-form";

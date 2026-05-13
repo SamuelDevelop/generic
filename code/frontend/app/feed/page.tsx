@@ -5,7 +5,7 @@ function FeedPage(){
     return (
         <div className="allScreen">
             <Header
-                isUserLogado={false}
+                isUserLogado={true}
             ></Header>
             <main>
                 <FeedSection
