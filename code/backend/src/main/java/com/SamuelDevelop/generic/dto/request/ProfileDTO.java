@@ -1,4 +1,4 @@
-package com.SamuelDevelop.generic.dto;
+package com.SamuelDevelop.generic.dto.request;
 
 import org.springframework.web.multipart.MultipartFile;
 

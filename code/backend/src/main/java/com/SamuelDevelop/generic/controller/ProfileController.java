@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SamuelDevelop.generic.dto.ProfileDTO;
+import com.SamuelDevelop.generic.dto.request.ProfileDTO;
 import com.SamuelDevelop.generic.entity.Profile;
 import com.SamuelDevelop.generic.entity.User;
 import com.SamuelDevelop.generic.exception.ProfileNotFoundException;

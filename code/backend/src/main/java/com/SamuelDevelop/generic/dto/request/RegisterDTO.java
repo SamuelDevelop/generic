@@ -1,4 +1,4 @@
-package com.SamuelDevelop.generic.dto;
+package com.SamuelDevelop.generic.dto.request;
 
 import com.SamuelDevelop.generic.enumeration.UserRole;
 

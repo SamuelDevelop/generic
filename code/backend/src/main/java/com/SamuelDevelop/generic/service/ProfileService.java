@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.SamuelDevelop.generic.dto.ProfileDTO;
+import com.SamuelDevelop.generic.dto.request.ProfileDTO;
 import com.SamuelDevelop.generic.entity.Profile;
 import com.SamuelDevelop.generic.entity.User;
 import com.SamuelDevelop.generic.exception.UserNotFoundException;
