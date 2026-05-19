@@ -8,9 +8,13 @@ import styles from "./Forms.module.css"
 import { useRouter } from "next/navigation";
 import { error, success } from "@/services/mensageHelpers";
 import { getProfilesByLoggedUser } from "@/services/findUserProfile";
+import { useAuth } from "@/hooks/authContext";
+import { getUserLogged } from "@/services/userService";
+import { redirectAfterLogin } from "@/services/redirect";
 
 function LoginForm(){
     const router = useRouter();
+    const { setUser } = useAuth();
 
     const {
         login,
@@ -28,7 +32,9 @@ function LoginForm(){
 
         if(sucesso){
             success("Úsuario Logado");
-            router.replace("/createProfile");
+            const data = await getUserLogged();
+            setUser(data);
+            await redirectAfterLogin(router);
         } else {
             error(`${erro}`)
         }

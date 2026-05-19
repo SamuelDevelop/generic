@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import "./globals.css";
-import { AuthProvider } from "@/components/authContext";
+import { AuthProvider } from "@/hooks/authContext";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {

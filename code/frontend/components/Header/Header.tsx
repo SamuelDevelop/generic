@@ -1,21 +1,14 @@
 'use client'
-import HeaderProps from "@/types/HeaderProps";
 import NavBar from "../NavBar/NavBar";
 import Image from "next/image";
 import styles from "./Header.module.css"
 import { FaSailboat } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/authContext";
 
-function Header(
-    {
-        isUserLogado,
-        userHasPersonalImage,
-        userPersonalImage,
-        userNickName,
-        userFirstName
-    } : HeaderProps
-){
+function Header(){
     const router = useRouter();
+    const {user} = useAuth();
 
     return(
         <header className={styles.header}>
@@ -31,13 +24,9 @@ function Header(
                 placeholder="Pesquise algo para começar..."
             />
             {
-                isUserLogado ?
+                user ?
                 <div>
-                    {userHasPersonalImage && (
-                        <Image src={userPersonalImage ?? ""} alt="userFoto" />
-                    )}
-                    <p>@{userNickName}</p>
-                    <p>{userFirstName}</p>
+                    <p>@{user.name}</p>
                 </div>
                 :
                 <div>

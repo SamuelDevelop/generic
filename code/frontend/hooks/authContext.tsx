@@ -8,6 +8,8 @@ type AuthContextType = {
     user: User | null;
     logged: boolean;
     loading: boolean;
+
+    setUser: (user: User | null) => void;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -17,10 +19,16 @@ export function AuthProvider({children} : { children: React.ReactNode }){
     const [loading, setLoading] = useState(true);
 
     async function loadUser() {
-        const data = await getUserLogged();
-
-        setUser(data);
-        setLoading(false);
+        try{
+            const data = await getUserLogged();
+            setUser(data);
+        } 
+        catch {
+            setUser(null);
+        }    
+        finally {
+            setLoading(false);
+        }
     }
 
     useEffect(()=>{
@@ -32,7 +40,8 @@ export function AuthProvider({children} : { children: React.ReactNode }){
             value={{
                 user, 
                 logged: !!user,
-                loading
+                loading,
+                setUser
             }}
         >
             {children}
@@ -44,7 +53,7 @@ export const useAuth = () => {
     const context = useContext(AuthContext);
 
     if (!context) {
-        throw new Error("useAuth deve ser usado dentro de AuthProvider");
+        throw new Error("useAuth should be used within AuthProvider");
     }
 
     return context;

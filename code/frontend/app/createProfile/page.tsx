@@ -1,5 +1,5 @@
 "use client"
-import { useAuth } from "@/components/authContext";
+import { useAuth } from "@/hooks/authContext";
 import BasicData from "@/components/Forms/CreateProfileForm/BasicData";
 import PerfilData from "@/components/Forms/CreateProfileForm/PerfilData";
 import { FormMultiStep } from "@/components/Forms/FormMultiStep/FormMultiStep";

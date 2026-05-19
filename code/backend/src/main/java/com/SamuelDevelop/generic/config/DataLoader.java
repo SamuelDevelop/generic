@@ -32,24 +32,35 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        if (!userRepository.existsByLogin(adminLogin)) {
+            User admin = new User(
+                adminLogin,
+                passwordEncoder.encode(adminPassword),
+                "Administrador",
+                UserRole.ADMIN
+            );
 
-        User admin = new User(
-            adminLogin,
-            passwordEncoder.encode(adminPassword),
-            "Administrador",
-            UserRole.ADMIN
-        );
+            userRepository.save(admin);
+            System.out.println("Admin was created successfully!");
+        }
+        else{
+            System.out.println("Administrador already exists");
+        }
 
-        User user = new User(
-            userLogin,
-            passwordEncoder.encode(userPassword),
-            "Usuário Comum",
-            UserRole.USER
-        );
+        if (!userRepository.existsByLogin(userLogin)) {
+            User user = new User(
+                userLogin,
+                passwordEncoder.encode(userPassword),
+                "Usuário Genérico",
+                UserRole.USER
+            );
 
-        userRepository.save(admin);
-        userRepository.save(user);
-
-        System.out.println("Usuários criados com sucesso!");
+            
+            userRepository.save(user);
+            System.out.println("Generic User was created successfully!");
+        }
+        else{
+            System.out.println("Generic User already exists");
+        }
     }
 }
