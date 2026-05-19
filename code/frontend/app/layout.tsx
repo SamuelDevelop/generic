@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { AuthProvider } from "@/hooks/authContext";
 import { Toaster } from "sonner";
+import { ProfileProvider } from "@/hooks/profileContext";
 
 export const metadata: Metadata = {
   title: "Generic",
@@ -65,16 +66,18 @@ export default function RootLayout({
     >
       <body>
         <AuthProvider>
-          {children}
+          <ProfileProvider>
+            {children}
 
-          <Toaster 
-            position="top-center"
-            richColors
-            closeButton
-            expand
-            duration={2500}
-            theme="dark"
-          />
+            <Toaster 
+              position="top-center"
+              richColors
+              closeButton
+              expand
+              duration={2500}
+              theme="dark"
+            />
+          </ProfileProvider>
         </AuthProvider>
       </body>
     </html>

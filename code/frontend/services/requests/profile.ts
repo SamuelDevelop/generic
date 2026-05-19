@@ -1,6 +1,7 @@
 import { apiFetch } from "@/services/api"
 import { showErrorMessage, showSuccessMessage } from "@/services/utils/mensageHelpers";
 import { getLoggedInUser } from "@/services/requests/user";
+import ProfileType from "@/types/ProfileType";
 
 export async function requestCreateProfile(data : {
     firstName: string,
@@ -40,14 +41,32 @@ export async function requestCreateProfile(data : {
     }
 }
 
-export async function getProfilesByLoggedUser() {
+export async function getProfilesByLoggedUser() : Promise<ProfileType[]> {
+    const profiles : ProfileType[] = [];
     const owner = await getLoggedInUser();
     const ownerLogin = owner.login;
     const response = await apiFetch(`/profile/owner/${ownerLogin}`)
     
     if(!response.ok){
-        return null;
+        return [];
     }
 
-    return response.json();
+    const formData = await response.json();
+    console.log(formData);
+
+    formData.forEach((p : any) => {
+        const profile : ProfileType = {
+            nickname: p.nickName,
+            gender: p.gender,
+            firstname: p.firstName,
+            lastname: p.lastName,
+            profileImage: null,
+            birthday: p.birthday,
+            description: p.description
+        }
+        
+        profiles.push(profile);
+    });
+
+    return profiles;
 }

@@ -9,9 +9,15 @@ export async function redirectAfterLogin(
     console.log(profiles.length);
 
     if(profiles.length == 0){
-        router.replace("/createProfile");
+        router.replace("/profile/create");
     }
     else{
         router.replace("/feed");
     }
+}
+
+export async function redirectToFeed(
+    router: AppRouterInstance
+) : Promise<void>{
+    router.replace("/feed");
 }
