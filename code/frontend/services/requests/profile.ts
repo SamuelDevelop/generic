@@ -1,6 +1,6 @@
-import { apiFetch } from "./api"
-import { error, success } from "./mensageHelpers";
-import { getUserLogged } from "./userService";
+import { apiFetch } from "@/services/api"
+import { showErrorMessage, showSuccessMessage } from "@/services/utils/mensageHelpers";
+import { getLoggedInUser } from "@/services/requests/user";
 
 export async function requestCreateProfile(data : {
     firstName: string,
@@ -11,7 +11,7 @@ export async function requestCreateProfile(data : {
     nickName: string,
     profileImage?: File | undefined
 }) {
-    const loggedUser = await getUserLogged();
+    const loggedUser = await getLoggedInUser();
     const formData = new FormData();
 
     formData.append("userLogin", loggedUser.login);
@@ -34,8 +34,20 @@ export async function requestCreateProfile(data : {
     if (!response.ok) {
         const message = await response.text()
 
-        error(message)
+        showErrorMessage(message)
     } else {
-        success("Perfil Criado!")
+        showSuccessMessage("O seu perfil foi criado!")
     }
+}
+
+export async function getProfilesByLoggedUser() {
+    const owner = await getLoggedInUser();
+    const ownerLogin = owner.login;
+    const response = await apiFetch(`/profile/owner/${ownerLogin}`)
+    
+    if(!response.ok){
+        return null;
+    }
+
+    return response.json();
 }

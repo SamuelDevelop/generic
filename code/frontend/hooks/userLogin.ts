@@ -1,6 +1,6 @@
 'use client'
 
-import { requestLogin } from "@/services/login";
+import { requestLogin } from "@/services/requests/auth";
 import { useState } from "react"
 
 export function useLogin(){

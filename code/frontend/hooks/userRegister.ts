@@ -1,6 +1,6 @@
 'use client'
-import { error } from "@/services/mensageHelpers";
-import { requestRegister } from "@/services/register";
+import { showErrorMessage } from "@/services/utils/mensageHelpers";
+import { requestRegister } from "@/services/requests/auth";
 import { useState } from "react";
 
 export function useRegister(){
@@ -12,17 +12,17 @@ export function useRegister(){
 
     function validar() {
         if (!nome || !email || !senha) {
-            error("Preencha todos os campos");
+            showErrorMessage("Preencha todos os campos");
             return "Preencha todos os campos";
         }
 
         if (senha.length < 6) {
-            error("Senha precisa ter no mínimo 6 caracteres");
+            showErrorMessage("Senha precisa ter no mínimo 6 caracteres");
             return "Senha precisa ter no mínimo 6 caracteres";
         }
 
         if(!email.includes("@") || !email.includes(".")){
-            error("Digite um email válido");
+            showErrorMessage("Digite um email válido");
             return "Senha precisa ter no mínimo 6 caracteres";
         }
 
@@ -49,7 +49,7 @@ export function useRegister(){
             )
         } catch {
             setErro("Problema ao registrar usuário");
-            error("Problema ao registrar usuário, tente novamente.");
+            showErrorMessage("Problema ao registrar usuário, tente novamente.");
             return false;
         }
 

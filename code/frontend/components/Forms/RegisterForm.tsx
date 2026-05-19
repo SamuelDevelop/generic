@@ -6,7 +6,7 @@ import TextInput from "../Inputs/TextInput";
 import FormFields from "./FormFields";
 import styles from "./Forms.module.css"
 import { useRouter } from "next/navigation";
-import { success } from "@/services/mensageHelpers";
+import { showSuccessMessage } from "@/services/utils/mensageHelpers";
 
 function RegisterForm(){
     const router = useRouter();
@@ -28,7 +28,7 @@ function RegisterForm(){
         const sucesso = await submit();
 
         if(sucesso){
-            success("Usuário Registrado!")
+            showSuccessMessage("Usuário Registrado!")
             router.replace("/login");
         }
     }

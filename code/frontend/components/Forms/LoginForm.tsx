@@ -6,11 +6,10 @@ import TextInput from "../Inputs/TextInput";
 import FormFields from "./FormFields";
 import styles from "./Forms.module.css"
 import { useRouter } from "next/navigation";
-import { error, success } from "@/services/mensageHelpers";
-import { getProfilesByLoggedUser } from "@/services/findUserProfile";
+import { showErrorMessage, showSuccessMessage } from "@/services/utils/mensageHelpers";
 import { useAuth } from "@/hooks/authContext";
-import { getUserLogged } from "@/services/userService";
-import { redirectAfterLogin } from "@/services/redirect";
+import { getLoggedInUser } from "@/services/requests/user";
+import { redirectAfterLogin } from "@/services/utils/redirect";
 
 function LoginForm(){
     const router = useRouter();
@@ -31,12 +30,12 @@ function LoginForm(){
         const sucesso = await submit();
 
         if(sucesso){
-            success("Úsuario Logado");
-            const data = await getUserLogged();
+            const data = await getLoggedInUser();
+            showSuccessMessage(`Bem vindo de volta ${data.name}`);
             setUser(data);
             await redirectAfterLogin(router);
         } else {
-            error(`${erro}`)
+            showErrorMessage(`${erro}`)
         }
     }
 

@@ -1,6 +1,5 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { getProfilesByLoggedUser } from "./findUserProfile";
-import { useRouter } from "next/navigation";
+import { getProfilesByLoggedUser } from "@/services/requests/profile";
 
 export async function redirectAfterLogin(
     router: AppRouterInstance

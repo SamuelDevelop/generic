@@ -9,15 +9,15 @@ import { useForm } from "react-hook-form";
 import { schema } from "@/components/Forms/CreateProfileForm/formSchema"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { requestCreateProfile } from "@/services/createProfile";
-import { error } from "@/services/mensageHelpers";
+import { requestCreateProfile } from "@/services/requests/profile";
+import { showErrorMessage } from "@/services/utils/mensageHelpers";
 
 type DadosFormulario = z.infer<typeof schema>
 
 async function submit(data: DadosFormulario){
     
     if(data.gender === "UNDEFINED"){
-        error("Selecione um genero válido");
+        showErrorMessage("Selecione um genero válido");
     }
 
     const response = await requestCreateProfile({

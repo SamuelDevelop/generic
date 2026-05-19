@@ -2,7 +2,7 @@
 
 import { User } from "@/types/UserType";
 import { createContext, useContext, useEffect, useState } from "react";
-import { getUserLogged } from "@/services/userService";
+import { getLoggedInUser } from "@/services/requests/user";
 
 type AuthContextType = {
     user: User | null;
@@ -20,7 +20,7 @@ export function AuthProvider({children} : { children: React.ReactNode }){
 
     async function loadUser() {
         try{
-            const data = await getUserLogged();
+            const data = await getLoggedInUser();
             setUser(data);
         } 
         catch {
