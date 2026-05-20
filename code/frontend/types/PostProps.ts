@@ -1,7 +1,6 @@
 import { StaticImageData } from "next/image"
 
 type PostProps = {
-
     authorNickName: string,
     authorFirstName: string,
     authorLastName: string,

@@ -1,7 +1,12 @@
-import NavBarOptionsProps from "@/types/FeedNavOptionProps";
 import styles from "./FeedNavOption.module.css"
 
-function FeedNavOption({children, onclick} : NavBarOptionsProps){
+type props = {
+    children : React.ReactNode
+    onclick? : (e: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+
+function FeedNavOption({children, onclick} : props){
     return(
         <button 
             onClick={onclick}

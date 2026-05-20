@@ -1,6 +1,11 @@
-import TwoPartSectionProps from "@/types/TwoPartSectionProps"
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import styles from "./TwoPartSection.module.css"
+
+type TwoPartSectionProps = {
+    children : React.ReactNode
+    image: StaticImageData | string
+    alt?: string
+}
 
 function TwoPartSection({children, image, alt} : TwoPartSectionProps){
     return (

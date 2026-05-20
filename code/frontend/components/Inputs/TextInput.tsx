@@ -1,6 +1,16 @@
 "use client";
-import textInputProps from "@/types/textInputProps";
 import styles from "./Inputs.module.css"
+
+type textInputProps = {
+    labelText : string,
+    labelSide: "lateral" | "cima",
+    placeholder? : string
+    aviso?: string,
+    inputId? : string,
+    inputName? : string,
+    inputValue? : string,
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
 function TextInput({
         labelText, labelSide, inputId, inputName, inputValue, onChange = () => {}, aviso, placeholder

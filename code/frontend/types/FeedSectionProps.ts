@@ -1,3 +1,0 @@
-type FeedSectionProps = {
-    userHaveProfile: boolean
-}

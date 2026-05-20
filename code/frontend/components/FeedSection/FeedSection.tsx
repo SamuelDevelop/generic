@@ -1,14 +1,12 @@
 "use client"
 import { getMockPosts } from "@/services/mockData";
-import Button from "../Button/Button";
-import TwoPartSection from "../TwoPartSection/TwoPartSection";
 import styles from "./FeedSection.module.css"
 import Posts from "../Post/Posts";
 import PostProps from "@/types/PostProps";
 import { useEffect, useState } from "react";
 import FeedNavigation from "../FeedNavagation/FeedNavigation";
 
-function FeedSection({ userHaveProfile }: FeedSectionProps) {
+function FeedSection() {
   const [feedPosts, setFeedPosts] = useState<PostProps[]>([]);
 
   useEffect(() => {
@@ -23,20 +21,10 @@ function FeedSection({ userHaveProfile }: FeedSectionProps) {
   return (
     <section className={styles.feedSection}>
       {
-        userHaveProfile ? (
-          <section>
-            <Posts posts={feedPosts} />
-            <FeedNavigation />
-          </section>
-        ) : (
-          <section>
-            <TwoPartSection image={"/images/ideias/conectada.jpg"}>
-              <h1>Crie um perfil Generic!</h1>
-              <p>Você tem uma conta mas ainda não possui um perfil Generic</p>
-              <Button variant="comum">Crie Agora</Button>
-            </TwoPartSection>
-          </section>
-        )
+        <section>
+          <Posts posts={feedPosts} />
+          <FeedNavigation />
+        </section>
       }
     </section>
   );

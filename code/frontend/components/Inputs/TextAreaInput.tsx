@@ -1,5 +1,15 @@
 import styles from "./Inputs.module.css"
-import textAreaInputProps from "@/types/textAreaInputProp";
+
+type textAreaInputProps = {
+    labelText : string,
+    labelSide: "lateral" | "cima",
+    placeholder? : string
+    aviso?: string,
+    inputId? : string,
+    inputName? : string,
+    value? : string,
+    onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+}
 
 function TextAreaInput({
         labelText, labelSide, inputId, inputName, aviso, placeholder, value, onChange

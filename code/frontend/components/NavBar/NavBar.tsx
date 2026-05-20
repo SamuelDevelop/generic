@@ -2,6 +2,12 @@ import { FaSearch } from "react-icons/fa";
 import Button from "../Button/Button";
 import styles from "./NavBar.module.css"
 
+type NavBarProps = {
+    placeholder?: string,
+    value?: string,
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
 function NavBar({placeholder, value, onChange} : NavBarProps){
     return(
         <div className={styles.navBarConteiner}>
@@ -17,8 +23,6 @@ function NavBar({placeholder, value, onChange} : NavBarProps){
                 <FaSearch />
             </Button>
         </div>
-        
-        
     )
     
 }
