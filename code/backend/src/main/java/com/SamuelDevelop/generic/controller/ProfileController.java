@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SamuelDevelop.generic.dto.request.ProfileDTO;
+import com.SamuelDevelop.generic.dto.response.ProfileResponseDTO;
 import com.SamuelDevelop.generic.entity.Profile;
 import com.SamuelDevelop.generic.entity.User;
 import com.SamuelDevelop.generic.exception.ProfileNotFoundException;
@@ -41,10 +42,20 @@ public class ProfileController {
     }
 
     @GetMapping("/owner/{login}")
-    public List<Profile> getProfileByOwnerLogin(@PathVariable String login){
+    public List<ProfileResponseDTO> getProfileByOwnerLogin(@PathVariable String login){
         User owner = (User) userRepository.findByLogin(login);
         
-        return repository.findByUserId(owner.getId());
+        return repository.findByUserId(owner.getId())
+            .stream()
+            .map(profile -> new ProfileResponseDTO(
+                profile.getNickName(),
+                profile.getFirstName(),
+                profile.getLastName(),
+                profile.getDescription(),
+                profile.getProfileImage(),
+                profile.getGender(),
+                profile.getBirthday()
+            )).toList();
     }
     
     @GetMapping("{id}")

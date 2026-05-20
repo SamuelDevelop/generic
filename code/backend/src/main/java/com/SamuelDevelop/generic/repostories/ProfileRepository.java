@@ -8,7 +8,6 @@ import com.SamuelDevelop.generic.entity.Profile;
 import com.SamuelDevelop.generic.entity.User;
 
 public interface ProfileRepository extends JpaRepository<Profile, Long> {
-
     List<Profile> findByUser(User user);
     List<Profile> findByUserId(Long userId);
     Profile findByNickName(String nickName);
