@@ -1,4 +1,5 @@
 "use client"
+import Main from "@/components/Main/Main";
 import ProfilesContainer from "@/components/Profile/ProfilesContainer/ProfilesContainer";
 import { useProfile } from "@/hooks/profileContext";
 import { getProfilesByLoggedUser } from "@/services/requests/profile";
@@ -17,7 +18,9 @@ function SelectProfilePage(){
     }, []);
 
     return (
-        <ProfilesContainer profiles={profiles}/>
+        <Main orientation="centralized">
+            <ProfilesContainer profiles={profiles}/>
+        </Main>
     )
 }
 

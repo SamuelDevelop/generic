@@ -1,15 +1,16 @@
 .button{
     color: var(--whiteColor);
-    background-color: var(--blueDarkColor);
+    background-color: var(--blueColor);
 
     font-weight: bold;
     
     cursor: pointer;
-    padding: .5rem 1rem;
+    padding: .7rem 1rem;
     
     outline: none;
     border: none;
-    border-radius: 1rem;
+    min-width: 8rem;
+    border-radius: 999px;;
 
     display: flex;
     flex-direction: row;
@@ -19,7 +20,7 @@
 }
 
 .button:hover{
-    background-color: var(--blueColor);
+    background-color: var(--blueDarkColor);
 }
 
 .button p{

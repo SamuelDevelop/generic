@@ -1,0 +1,33 @@
+.profilesContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    border: 1px solid gray;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+.container > *{
+    cursor: pointer;
+    padding: .4rem .6rem;
+    border-radius: .8rem;
+
+    transition: all 100ms ease-in-out;
+}
+
+.container > *:hover{
+    background-color: var(--grayColor);
+    transform: scale(1.07);
+}

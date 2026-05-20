@@ -1,0 +1,31 @@
+.main{
+    box-sizing: border-box;
+}
+
+.centralized{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.lefted{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: left;
+}
+
+.topCenter{
+    width: 100vw;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}

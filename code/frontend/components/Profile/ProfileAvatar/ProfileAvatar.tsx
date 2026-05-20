@@ -20,9 +20,10 @@ function ProfileAvatar({profile, onClick} : props){
                     alt={"profile-image"} 
                     width={1000}
                     height={1000}
+                    className={styles.avatarImage}
                 />
                 :
-                <div>
+                <div className={styles.defaultAvatar}>
                     <p>{profile.firstname.slice(0, 1)}{profile.lastname.slice(0, 1)}</p>
                 </div>
             }

@@ -1,6 +1,7 @@
 import ProfileType from "@/types/ProfileType";
 import styles from "./ProfileHeader.module.css"
 import ProfileAvatar from "@/components/Profile/ProfileAvatar/ProfileAvatar";
+import Icon from "@/components/Icon/Icon";
 
 type props = {
     profile: ProfileType
@@ -16,7 +17,7 @@ function ProfileHeader({profile, onClick} : props){
             <ProfileAvatar profile={profile}/>
             <div className={styles.profileContext}>
                 <p>{profile.firstname}</p>
-                <p>{profile.nickname}</p>
+                <p><Icon icon="boat"/> <b>{profile.nickname}</b></p>
             </div>
         </div>
     )

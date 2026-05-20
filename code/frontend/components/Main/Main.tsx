@@ -2,13 +2,14 @@ import styles from "./Main.module.css"
 
 type props = {
     children : React.ReactNode,
-    orientation?: "center" | "topCenter"
+    orientation?: "centralized" | "topCenter" | "lefted"
 }
 
 const Main = ({children, orientation} : props) =>{
-    
+    const classes = `${styles.main} ${styles[orientation ?? "center"]}`;
+
     return(
-        <main className={styles[orientation ?? "center"]}>
+        <main className={classes}>
             {children}
         </main>
     )

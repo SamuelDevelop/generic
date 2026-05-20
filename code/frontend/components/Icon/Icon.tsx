@@ -1,10 +1,27 @@
 import { AiFillThunderbolt } from "react-icons/ai"
 import { FaSearch } from "react-icons/fa"
-import { FaBook, FaRegComment, FaRegHeart, FaSailboat, FaShare } from "react-icons/fa6"
+import { 
+    FaBook,
+    FaRegComment,
+    FaRegHeart,
+    FaSailboat,
+    FaShare,
+    FaPlus
+} from "react-icons/fa6"
+
 import { FiAlertTriangle } from "react-icons/fi"
 
 type IconProps = {
-    icon: "boat" | "like" | "comment" | "alert" | "share" | "search" | "swirl" | "book"
+    icon:
+        | "boat"
+        | "like"
+        | "comment"
+        | "alert"
+        | "share"
+        | "search"
+        | "swirl"
+        | "book"
+        | "plus"
 }
 
 const context = {
@@ -15,10 +32,11 @@ const context = {
     alert: <FiAlertTriangle />,
     search: <FaSearch />,
     swirl: <AiFillThunderbolt />,
-    book: <FaBook />        
+    book: <FaBook />,
+    plus: <FaPlus />
 }
 
-function Icon({icon} : IconProps){
+function Icon({ icon }: IconProps) {
     return context[icon] ?? context["alert"];
 }
 

@@ -1,9 +1,10 @@
+import Main from "@/components/Main/Main";
 import StartInGeneric from "@/components/StartInGeneric/StartInGeneric";
 
 export default function Home() {
   return (
-    <main className="allScreen">
+    <Main orientation="centralized">
       <StartInGeneric/>
-    </main>
+    </Main>
   );
 }

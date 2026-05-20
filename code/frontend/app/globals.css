@@ -2,7 +2,7 @@
     --blueColor: rgb(21, 49, 175);
     --blueDarkColor: rgb(7, 23, 97);
     --grayColor: #24242b;
-    --darkColor: #12121c;
+    --darkColor: #17171d;
     --whiteColor: rgb(255, 255, 255);
     --redColor: rgb(179, 25, 25);
     --comumBorder: #464649 solid 1px;
@@ -16,13 +16,6 @@
 
 body{
     background-color: var(--darkColor);
-}
-
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 h1, h2, h3, p, a {
@@ -46,7 +39,7 @@ h3{
 }
 
 p, button{
-    font-family: var(--fontDomine);
+    font-family: var(--fontPrimary);
     font-size: 1.1rem;
 }
 
@@ -59,20 +52,56 @@ a:hover{
     color: var(--blueColor)
 }
 
-.allScreen{
-    width: 100vw;
-    height: 100vh;
+.toast {
+    background: var(--darkColor) !important;
+    font-family: var(--fontPrimary);
+    padding: 1.2rem 2rem !important;
+    min-height: 58px !important;
+    border-radius: 1rem;
 
-    max-width: 100vw;
-    max-height: 100vh;
-    box-sizing: border-box;
+    font-family: var(--fontPrimary) !important;
+    font-size: 12pt !important;
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid transparent !important;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35) !important;
+
+    transition: all 0.2s ease;
+    border: 1px solid gray !important;
 }
 
-.leftedPage{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 2.5rem;
-    gap: 1rem;
+.toast-success {
+    color: #dcfce7 !important;
+}
+
+.toast-success [data-description] {
+    color: #86efac !important;
+}
+
+.toast-error {
+    color: #fee2e2 !important;
+}
+
+.toast-error [data-title] {
+    color: #fee2e2 !important;
+}
+
+.toast-error [data-description] {
+    color: #fca5a5 !important;
+}
+
+.toast [data-close-button] {
+    background: var(--blueColor) !important;
+    border: none !important;
+    color: white !important;
+
+    border-radius: 999px !important;
+    font-size: 24pt !important;
+}
+
+.toast [data-close-button]:hover {
+    background: rgb(191, 28, 28) !important;
 }

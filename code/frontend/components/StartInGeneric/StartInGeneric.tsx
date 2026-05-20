@@ -34,7 +34,7 @@ function StartInGeneric(){
                 <div>
                     <h1>Comece a ser Generic</h1>
                     <p>Entre agora mesmo e navegue pelos mares Generic's que você tanto ama.</p>
-                    <p>Curta Posts, Swirls, Videos e Profiles com qualidade Generic.</p>
+                    <p>Curta Posts, Waves, Videos e Profiles com qualidade Generic.</p>
                 </div>
                                 
                 <Button

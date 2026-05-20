@@ -6,11 +6,14 @@ import { FaSailboat } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/authContext";
 import { useProfile } from "@/hooks/profileContext";
+import ProfileHeader from "../Profile/ProfileHeader/ProfileHeader";
 
 function Header(){
     const router = useRouter();
     const {user} = useAuth();
     const { profile } = useProfile();
+
+    console.log(profile)
 
     return(
         <header className={styles.header}>
@@ -25,15 +28,18 @@ function Header(){
             <NavBar
                 placeholder="Pesquise algo para começar..."
             />
+            
             {
-                user ?
-                <div>
-                    <p>{user.name}</p>
-                    <p>{profile?.nickname}</p>
-                </div>
+                user && profile ?
+                <ProfileHeader 
+                    profile={profile}
+                    onClick={()=>{
+                        router.push("/profile/select")
+                    }}
+                />
                 :
                 <div>
-                    <a>Meus perfis</a>
+                    <a href="/login">Entre com seu Perfil</a>
                 </div>
             }
         </header>

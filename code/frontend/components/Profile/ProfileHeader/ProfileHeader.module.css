@@ -1,0 +1,15 @@
+.profileHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: .5rem;
+}
+
+.profileContext > p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .2rem;
+}

@@ -1,0 +1,13 @@
+.avatar *{
+    width: 4rem; height: 4rem;
+    border-radius: 100%;
+}
+
+.defaultAvatar *{
+    background-color: var(--blueColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18pt;
+    font-family: var(--fontPoltawski);
+}

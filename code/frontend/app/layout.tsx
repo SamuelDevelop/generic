@@ -14,16 +14,16 @@ export const metadata: Metadata = {
   },
 };
 
-const fontInter = localFont({
+const fontGoogleSans = localFont({
   src: [
     {
-      path: "../assets/fonts/Inter.ttf",
+      path: "../assets/fonts/GoogleSans.ttf",
       weight: "100 900",
       style: "normal",
     },
   ],
   
-  variable: "--fontInter" 
+  variable: "--fontPrimary" 
 });
 
 const fontPoltawski = localFont({
@@ -59,7 +59,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`
-        ${fontInter.variable} 
+        ${fontGoogleSans.variable} 
         ${fontPoltawski.variable}
         ${fontDomine.variable}
       `}
@@ -71,11 +71,14 @@ export default function RootLayout({
 
             <Toaster 
               position="top-center"
-              richColors
+              richColors={false}
               closeButton
               expand
               duration={2500}
               theme="dark"
+              toastOptions={{
+                className: "toast",
+              }}
             />
           </ProfileProvider>
         </AuthProvider>
