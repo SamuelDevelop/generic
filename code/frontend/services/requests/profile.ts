@@ -2,6 +2,8 @@ import { apiFetch } from "@/services/api"
 import { showErrorMessage, showSuccessMessage } from "@/services/utils/mensageHelpers";
 import { getLoggedInUser } from "@/services/requests/user";
 import ProfileType from "@/types/ProfileType";
+import { getImageMimeType } from "../utils/formatImage";
+
 
 export async function requestCreateProfile(data : {
     firstName: string,
@@ -39,6 +41,8 @@ export async function requestCreateProfile(data : {
     } else {
         showSuccessMessage("O seu perfil foi criado!")
     }
+
+    return response;
 }
 
 export async function getProfilesByLoggedUser() : Promise<ProfileType[]> {
@@ -54,17 +58,26 @@ export async function getProfilesByLoggedUser() : Promise<ProfileType[]> {
     const formData = await response.json();
     console.log(formData);
 
-    formData.forEach((p : any) => {
-        const profile : ProfileType = {
+    formData.forEach((p: any) => {
+
+        let profileImage = "";
+
+        if (p.profileImage) {
+            const mimeType = getImageMimeType(p.profileImage);
+
+            profileImage = `data:${mimeType};base64,${p.profileImage}`;
+        }
+
+        const profile: ProfileType = {
             nickname: p.nickName,
             gender: p.gender,
             firstname: p.firstName,
             lastname: p.lastName,
-            profileImage: null,
+            profileImage: profileImage,
             birthday: p.birthday,
             description: p.description
-        }
-        
+        };
+
         profiles.push(profile);
     });
 

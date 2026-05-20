@@ -11,25 +11,36 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { requestCreateProfile } from "@/services/requests/profile";
 import { showErrorMessage } from "@/services/utils/mensageHelpers";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { redirectToFeed } from "@/services/utils/redirect";
+import { useRouter } from "next/navigation";
 
 type DadosFormulario = z.infer<typeof schema>
 
-async function submit(data: DadosFormulario){
-    
-    if(data.gender === "UNDEFINED"){
-        showErrorMessage("Selecione um genero válido");
-    }
-
-    const response = await requestCreateProfile({
-        ...data,
-        birthday: new Date(data.birthday),
-        gender: data.gender
-    });
-
-    console.log(response);
-}
 
 function CreateProfilePage(){
+    const router = useRouter();
+
+    async function submit(
+        data: DadosFormulario,
+    ){
+        if(data.gender === "UNDEFINED"){
+            showErrorMessage("Selecione um genero válido");
+        }
+
+        const response = await requestCreateProfile({
+            ...data,
+            birthday: new Date(data.birthday),
+            gender: data.gender
+        });
+
+        console.log(response);
+
+        if(response.ok){
+            router.push("/profile/select");
+        }
+    }
+
     const form = useForm<DadosFormulario>({
         resolver: zodResolver(schema),
         defaultValues: {

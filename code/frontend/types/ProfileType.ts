@@ -3,7 +3,7 @@ type ProfileType = {
     gender: "MALE" | "FEMALE" | "NONBINARY" | "NOTINFORMED" | "UNDEFINED"
     firstname: string,
     lastname: string,
-    profileImage: null,
+    profileImage: string | null,
     birthday: Date,
     description: string
 }

@@ -12,7 +12,7 @@ export async function redirectAfterLogin(
         router.replace("/profile/create");
     }
     else{
-        router.replace("/feed");
+        router.replace("/profile/select");
     }
 }
 
