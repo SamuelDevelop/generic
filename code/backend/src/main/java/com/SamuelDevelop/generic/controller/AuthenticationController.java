@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,25 +36,6 @@ public class AuthenticationController {
 
     @Autowired
     private UserRepository repository;
-    
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody @Valid AuthenticationDTO data, HttpServletResponse response){
-        var usernamePasword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
-        var auth = authenticationManager.authenticate(usernamePasword);
-
-        var token = tokenService.generateToken((User) auth.getPrincipal());
-
-        ResponseCookie cookie = ResponseCookie.from("token", token)
-            .httpOnly(true)
-            .secure(false)
-            .path("/")
-            .maxAge(60 * 60)
-            .build();
-        
-        response.addHeader("Set-Cookie", cookie.toString());
-
-        return ResponseEntity.ok().build();
-    }
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody @Valid RegisterDTO data){
@@ -65,6 +47,35 @@ public class AuthenticationController {
         User newUser = new User(data.login(), encryptedPassword, data.name(), data.role());
 
         this.repository.save(newUser);
+
+        return ResponseEntity.ok().build();
+    }
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody @Valid AuthenticationDTO data, HttpServletResponse response){
+        var usernamePasword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
+        var auth = authenticationManager.authenticate(usernamePasword);
+
+        User user = (User) auth.getPrincipal();
+        String accessToken = tokenService.generateToken(user);
+        String refreshToken = tokenService.generateRefreshToken(user);
+
+        ResponseCookie accessCookie = ResponseCookie.from("token", accessToken)
+        .httpOnly(true)
+        .secure(false)
+        .path("/")
+        .maxAge(60 * 15)
+        .build();
+
+        ResponseCookie refreshCookie = ResponseCookie.from("refreshToken", refreshToken)
+            .httpOnly(true)
+            .secure(false)
+            .path("/")
+            .maxAge(60 * 60 * 24 * 7)
+            .build();
+
+        response.addHeader("Set-Cookie", accessCookie.toString());
+        response.addHeader("Set-Cookie", refreshCookie.toString());
 
         return ResponseEntity.ok().build();
     }
@@ -84,5 +95,60 @@ public class AuthenticationController {
         );
 
         return ResponseEntity.ok(userDTO);
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refreshToken(
+        @CookieValue(name = "refreshToken", required = false) String refreshToken, 
+        HttpServletResponse response
+    ){
+        if(refreshToken == null){
+            return ResponseEntity.status(401).build();
+        }
+
+        try {
+            String login = tokenService.validateToken(refreshToken);
+            User user = (User) repository.findByLogin(login);
+
+            if (user == null) {
+                return ResponseEntity.status(401).build();
+            }
+
+            String newAccessToken = tokenService.generateToken(user);
+
+            ResponseCookie accessCookie = ResponseCookie.from("token", newAccessToken)
+            .httpOnly(true)
+            .secure(false)
+            .path("/")
+            .maxAge(60 * 15)
+            .build();
+
+            response.addHeader("Set-Cookie", accessCookie.toString());
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+            return ResponseEntity.status(401).build();
+        }
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletResponse response){
+
+        ResponseCookie deleteAccess = ResponseCookie.from("token", "")
+            .httpOnly(true)
+            .path("/")
+            .maxAge(0)
+            .build();
+
+        ResponseCookie deleteRefresh = ResponseCookie.from("refreshToken", "")
+            .httpOnly(true)
+            .path("/")
+            .maxAge(0)
+            .build();
+
+        response.addHeader("Set-Cookie", deleteAccess.toString());
+        response.addHeader("Set-Cookie", deleteRefresh.toString());
+
+        return ResponseEntity.ok().build();
     }
 }

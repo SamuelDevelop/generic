@@ -35,6 +35,21 @@ public class TokenService {
         }
     }
 
+    public String generateRefreshToken(User user){
+        try{
+            Algorithm algorithm = Algorithm.HMAC256(secretSalt);
+
+            return JWT.create()
+                .withIssuer("auth-api")
+                .withSubject(user.getLogin())
+                .withExpiresAt(generateRefreshExpirationDate())
+                .sign(algorithm);
+
+        } catch (JWTCreationException exception){
+            throw new RuntimeException("Erro ao gerar refresh token", exception);
+        }
+    }
+
     public String validateToken(String token){
         try{
             Algorithm algorithm = Algorithm.HMAC256(secretSalt);
@@ -51,5 +66,11 @@ public class TokenService {
 
     private Instant getExpirationTime(){
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+    }
+
+    private Instant generateRefreshExpirationDate(){
+        return LocalDateTime.now()
+            .plusDays(7)
+            .toInstant(ZoneOffset.of("-03:00"));
     }
 }
