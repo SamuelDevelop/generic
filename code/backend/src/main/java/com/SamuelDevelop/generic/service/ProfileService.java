@@ -28,9 +28,9 @@ public class ProfileService {
         }
         
         entity.setUser(user);
-        entity.setNickName(dto.nickName());
-        entity.setFirstName(dto.firstName());
-        entity.setLastName(dto.lastName());
+        entity.setNickname(dto.nickName());
+        entity.setFirstname(dto.firstName());
+        entity.setLastname(dto.lastName());
         entity.setDescription(dto.description());
         entity.setBirthday(LocalDate.parse(dto.birthday()));
         entity.setGender(dto.gender());

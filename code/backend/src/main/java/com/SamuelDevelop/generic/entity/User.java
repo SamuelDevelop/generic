@@ -31,24 +31,29 @@ import lombok.Setter;
 public class User implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
 
-    @Column(nullable = false, unique = true)
-    private String login;
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "role", nullable = false)
     private UserRole role;
 
-    public User(String login, String password, String name, UserRole role){
-        this.login = login;
+    /*
+        TO DO:
+        incrase phonenumber
+    */
+
+    public User(String email, String password, String name, UserRole role){
+        this.email = email;
         this.password = password;
         this.name = name;
         this.role = role;
@@ -66,7 +71,11 @@ public class User implements UserDetails{
 
     @Override
     public String getUsername() {
-        return login;
+        return email;
+    }
+
+    public String getLogin(){
+        return email;
     }
 
     @Override

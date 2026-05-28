@@ -24,7 +24,7 @@ import com.SamuelDevelop.generic.service.ProfileService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("profile")
+@RequestMapping("profiles")
 public class ProfileController {
     
     @Autowired
@@ -36,7 +36,7 @@ public class ProfileController {
     @Autowired
     private ProfileService service;
 
-    @GetMapping("{nickName}")
+    @GetMapping("nickname/{nickName}")
     public Profile getProfileByNickName(@PathVariable String nickName){
         return repository.findByNickName(nickName);
     }
@@ -48,9 +48,9 @@ public class ProfileController {
         return repository.findByUserId(owner.getId())
             .stream()
             .map(profile -> new ProfileResponseDTO(
-                profile.getNickName(),
-                profile.getFirstName(),
-                profile.getLastName(),
+                profile.getNickname(),
+                profile.getFirstname(),
+                profile.getLastname(),
                 profile.getDescription(),
                 profile.getProfileImage(),
                 profile.getGender(),
@@ -58,7 +58,7 @@ public class ProfileController {
             )).toList();
     }
     
-    @GetMapping("{id}")
+    @GetMapping("id/{id}")
     public Profile getProfileById(@PathVariable long id){
         return repository.findById(id)
             .orElseThrow(() -> new ProfileNotFoundException());

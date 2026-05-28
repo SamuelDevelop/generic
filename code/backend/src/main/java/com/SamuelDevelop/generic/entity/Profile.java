@@ -3,6 +3,7 @@ package com.SamuelDevelop.generic.entity;
 import java.time.LocalDate;
 
 import com.SamuelDevelop.generic.enumeration.Gender;
+import com.SamuelDevelop.generic.enumeration.ProfileStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,21 +37,32 @@ public class Profile {
     private User user;
 
     @Column(unique = true)
-    private String nickName;
+    private String nickname;
 
     @Column(nullable = false)
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
 
+    @Column(name = "profile_description")
     private String description;
 
     @Column(columnDefinition = "bytea")
     private byte[] profileImage;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name="status", nullable = false)
+    private ProfileStatus status;
+
+
+    /*
+        TO DO:
+        move gender and birthday to users table
+    */
+   
+    @Enumerated(EnumType.STRING)
+    @Column(name="gender", nullable = false)
     private Gender gender;
 
-    @Column(nullable = false)
+    @Column(name="birthday", nullable = false)
     private LocalDate birthday;
 }
