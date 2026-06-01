@@ -1,5 +1,6 @@
 package com.SamuelDevelop.generic.entity;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -7,7 +8,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.SamuelDevelop.generic.enumeration.Gender;
 import com.SamuelDevelop.generic.enumeration.UserRole;
+import com.SamuelDevelop.generic.validation.MinimumAge;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,6 +20,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,10 +51,17 @@ public class User implements UserDetails{
     @Column(name = "role", nullable = false)
     private UserRole role;
 
-    /*
-        TO DO:
-        incrase phonenumber
-    */
+    @Enumerated(EnumType.STRING)
+    @Column(name="gender", nullable = false)
+    private Gender gender;
+
+    @Past(message = "invalid data")
+    @MinimumAge
+    @Column(name="birthday", nullable = false)
+    private LocalDate birthday;
+
+    @Column(name="phoneNumber")
+    private String phoneNumber;
 
     public User(String email, String password, String name, UserRole role){
         this.email = email;

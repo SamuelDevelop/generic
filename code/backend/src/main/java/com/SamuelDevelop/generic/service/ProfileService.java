@@ -1,7 +1,6 @@
 package com.SamuelDevelop.generic.service;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ public class ProfileService {
         User user = (User) this.repository.findByLogin(dto.userLogin());
 
         if(user == null){
-            throw new UserNotFoundException("Em ProfileService em toEntity");
+            throw new UserNotFoundException("in ProfileService in toEntity");
         }
         
         entity.setUser(user);
@@ -32,13 +31,12 @@ public class ProfileService {
         entity.setFirstname(dto.firstName());
         entity.setLastname(dto.lastName());
         entity.setDescription(dto.description());
-        entity.setBirthday(LocalDate.parse(dto.birthday()));
-        entity.setGender(dto.gender());
+        
         if (dto.personalImage() != null && !dto.personalImage().isEmpty()) {
             try {
                 entity.setProfileImage(dto.personalImage().getBytes());
             } catch (IOException e) {
-                throw new RuntimeException("Erro ao processar imagem");
+                throw new RuntimeException("Image processing failed");
             }
         }
 

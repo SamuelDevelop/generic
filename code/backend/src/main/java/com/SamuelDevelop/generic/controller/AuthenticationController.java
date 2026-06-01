@@ -91,7 +91,9 @@ public class AuthenticationController {
         UserResponseDTO userDTO = new UserResponseDTO(
             user.getLogin(),
             user.getName(),
-            user.getRole().name()
+            user.getRole().name(),
+            user.getGender(),
+            user.getBirthday()
         );
 
         return ResponseEntity.ok(userDTO);

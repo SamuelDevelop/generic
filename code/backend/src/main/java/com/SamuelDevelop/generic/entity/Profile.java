@@ -1,8 +1,5 @@
 package com.SamuelDevelop.generic.entity;
 
-import java.time.LocalDate;
-
-import com.SamuelDevelop.generic.enumeration.Gender;
 import com.SamuelDevelop.generic.enumeration.ProfileStatus;
 
 import jakarta.persistence.Column;
@@ -52,17 +49,4 @@ public class Profile {
     @Enumerated(EnumType.STRING)
     @Column(name="status", nullable = false)
     private ProfileStatus status;
-
-
-    /*
-        TO DO:
-        move gender and birthday to users table
-    */
-   
-    @Enumerated(EnumType.STRING)
-    @Column(name="gender", nullable = false)
-    private Gender gender;
-
-    @Column(name="birthday", nullable = false)
-    private LocalDate birthday;
 }

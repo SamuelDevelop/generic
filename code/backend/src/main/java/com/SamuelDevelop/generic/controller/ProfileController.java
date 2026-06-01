@@ -52,9 +52,7 @@ public class ProfileController {
                 profile.getFirstname(),
                 profile.getLastname(),
                 profile.getDescription(),
-                profile.getProfileImage(),
-                profile.getGender(),
-                profile.getBirthday()
+                profile.getProfileImage()
             )).toList();
     }
     
