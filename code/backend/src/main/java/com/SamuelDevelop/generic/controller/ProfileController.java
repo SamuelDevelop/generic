@@ -38,12 +38,12 @@ public class ProfileController {
 
     @GetMapping("nickname/{nickName}")
     public Profile getProfileByNickName(@PathVariable String nickName){
-        return repository.findByNickName(nickName);
+        return repository.findByNickname(nickName);
     }
 
-    @GetMapping("/owner/{login}")
-    public List<ProfileResponseDTO> getProfileByOwnerLogin(@PathVariable String login){
-        User owner = (User) userRepository.findByLogin(login);
+    @GetMapping("/owner/{email}")
+    public List<ProfileResponseDTO> getProfileByOwnerLogin(@PathVariable String email){
+        User owner = (User) userRepository.findByEmail(email);
         
         return repository.findByUserId(owner.getId())
             .stream()

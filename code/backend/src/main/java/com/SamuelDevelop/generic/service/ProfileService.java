@@ -20,7 +20,7 @@ public class ProfileService {
     public Profile toEntity(ProfileDTO dto){
         Profile entity = new Profile();
         
-        User user = (User) this.repository.findByLogin(dto.userLogin());
+        User user = (User) this.repository.findByEmail(dto.userLogin());
 
         if(user == null){
             throw new UserNotFoundException("in ProfileService in toEntity");

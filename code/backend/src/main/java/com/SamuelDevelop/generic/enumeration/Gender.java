@@ -10,9 +10,9 @@ public enum Gender {
     NOTINFORMED("not informed"),
     UNDEFINED("undefined");
     
-    private String visibility;
+    private String gender;
 
-    Gender(String visibility){
-        this.visibility = visibility;
+    Gender(String gender){
+        this.gender = gender;
     }
 }

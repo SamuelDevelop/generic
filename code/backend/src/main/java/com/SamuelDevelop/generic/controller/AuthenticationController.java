@@ -39,12 +39,12 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody @Valid RegisterDTO data){
-        if(this.repository.findByLogin(data.login()) != null) {
+        if(this.repository.findByEmail(data.email()) != null) {
             return ResponseEntity.badRequest().build();
         }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        User newUser = new User(data.login(), encryptedPassword, data.name(), data.role());
+        User newUser = new User(data.email(), encryptedPassword, data.name(), data.role(), data.gender(), data.birthday(), data.phoneNumber());
 
         this.repository.save(newUser);
 
@@ -110,7 +110,7 @@ public class AuthenticationController {
 
         try {
             String login = tokenService.validateToken(refreshToken);
-            User user = (User) repository.findByLogin(login);
+            User user = (User) repository.findByEmail(login);
 
             if (user == null) {
                 return ResponseEntity.status(401).build();

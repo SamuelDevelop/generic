@@ -63,11 +63,14 @@ public class User implements UserDetails{
     @Column(name="phoneNumber")
     private String phoneNumber;
 
-    public User(String email, String password, String name, UserRole role){
+    public User(String email, String password, String name, UserRole role, Gender gender, LocalDate birthday, String phoneNumber){
         this.email = email;
         this.password = password;
         this.name = name;
         this.role = role;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
