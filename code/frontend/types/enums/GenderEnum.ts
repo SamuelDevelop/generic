@@ -1,0 +1,7 @@
+enum GenderEnum {
+    MALE = "MALE",
+    FEMALE = "FEMALE",
+    NONBINARY = "NONBINARY",
+    NOTINFORMED = "NOTINFORMED",  
+    UNDEFINED = "UNDEFINED"
+}

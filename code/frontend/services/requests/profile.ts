@@ -8,8 +8,6 @@ import { getImageMimeType } from "../utils/formatImage";
 export async function requestCreateProfile(data : {
     firstName: string,
     lastName: string,
-    birthday: Date,
-    gender: "MALE" | "FEMALE" | "NONBINARY" | "NOTINFORMED" | "UNDEFINED",
     description: string,
     nickName: string,
     profileImage?: File | undefined
@@ -22,8 +20,6 @@ export async function requestCreateProfile(data : {
     formData.append("firstName", data.firstName);
     formData.append("lastName", data.lastName);
     formData.append("description", data.description);
-    formData.append("gender", data.gender);
-    formData.append("birthday", data.birthday.toISOString().split("T")[0]);
 
     if (data.profileImage) {
         formData.append("personalImage", data.profileImage);
@@ -70,11 +66,9 @@ export async function getProfilesByLoggedUser() : Promise<ProfileType[]> {
 
         const profile: ProfileType = {
             nickname: p.nickName,
-            gender: p.gender,
             firstname: p.firstName,
             lastname: p.lastName,
             profileImage: profileImage,
-            birthday: p.birthday,
             description: p.description
         };
 

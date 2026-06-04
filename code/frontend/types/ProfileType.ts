@@ -1,11 +1,9 @@
 type ProfileType = {
     nickname: string
-    gender: "MALE" | "FEMALE" | "NONBINARY" | "NOTINFORMED" | "UNDEFINED"
     firstname: string,
-    lastname: string,
+    lastname: string | null,
     profileImage: string | null,
-    birthday: Date,
-    description: string
+    description: string | null,
 }
 
 export default ProfileType;
