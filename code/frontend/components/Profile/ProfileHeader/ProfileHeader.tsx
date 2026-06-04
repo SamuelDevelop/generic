@@ -1,4 +1,4 @@
-import ProfileType from "@/types/ProfileType";
+import ProfileType from "@/types/props/ProfileType";
 import styles from "./ProfileHeader.module.css"
 import ProfileAvatar from "@/components/Profile/ProfileAvatar/ProfileAvatar";
 import Icon from "@/components/Icon/Icon";

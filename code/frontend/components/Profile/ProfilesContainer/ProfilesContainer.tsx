@@ -1,6 +1,6 @@
 import { useProfile } from "@/hooks/profileContext";
 import { redirectToFeed } from "@/services/utils/redirect";
-import ProfileType from "@/types/ProfileType";
+import ProfileType from "@/types/props/ProfileType";
 import { useRouter } from "next/navigation";
 import ProfileHeader from "../ProfileHeader/ProfileHeader";
 import Button from "@/components/Button/Button";

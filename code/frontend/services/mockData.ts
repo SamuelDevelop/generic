@@ -1,4 +1,4 @@
-import PostProps from "@/types/PostProps";
+import PostProps from "@/types/props/PostProps";
 
 export async function getMockData(fileName : string){
     try {

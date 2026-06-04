@@ -1,4 +1,4 @@
-import PostProps from "@/types/PostProps";
+import PostProps from "@/types/props/PostProps";
 import PostComponent from "./Post";
 import Post from "./Post";
 import styles from "./Post.module.css"

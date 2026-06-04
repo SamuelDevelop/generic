@@ -1,4 +1,4 @@
-import PostOptionProps from "@/types/PostOptionProps";
+import PostOptionProps from "@/types/props/PostOptionProps";
 import { useState } from "react";
 import styles from "./PostOption.module.css"
 

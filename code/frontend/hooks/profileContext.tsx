@@ -1,6 +1,6 @@
 "use client"
 import { createContext, useContext, useEffect, useState } from "react";
-import ProfileType from "@/types/ProfileType";
+import ProfileType from "@/types/props/ProfileType";
 
 type ProfileContextType = {
     profile: ProfileType | null;

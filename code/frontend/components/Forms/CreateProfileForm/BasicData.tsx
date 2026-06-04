@@ -1,7 +1,7 @@
 import DateInput from "@/components/Inputs/DateInput";
 import SelectInput from "@/components/Inputs/SelectInput";
 import TextInput from "@/components/Inputs/TextInput";
-import OptionProps from "@/types/OptionsProps";
+import OptionProps from "@/types/props/OptionsProps";
 import { Controller } from "react-hook-form";
 import styles from "./CreateProfile.module.css"
 

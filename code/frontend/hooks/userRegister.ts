@@ -2,31 +2,44 @@
 import { showErrorMessage } from "@/services/utils/mensageHelpers";
 import { requestRegister } from "@/services/requests/auth";
 import { useState } from "react";
+import GenderEnum from "@/types/enums/GenderEnum";
+import { validateEmail, validateGender, validatePassword, validatePhone } from "@/services/validations/comumValidations";
+import { validationsErrorMessage } from "@/services/validations/createValidation";
+import UserRoleEnum from "@/types/enums/UserRolesEnum";
 
 export function useRegister(){
-    const [nome, setNome] = useState("");
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [gender, setGender] = useState<GenderEnum>(GenderEnum.UNDEFINED);
+    const [phoneNumber, setPhoneNumber] = useState<string | null>("");
+    const [birthday, setBirthday] = useState<Date>();
 
     const [erro, setErro] = useState("");
 
     function validar() {
-        if (!nome || !email || !senha) {
+        if (!name || !email || !password || !gender || !birthday) {
             showErrorMessage("Preencha todos os campos");
             return "Preencha todos os campos";
         }
 
-        if (senha.length < 6) {
-            showErrorMessage("Senha precisa ter no mínimo 6 caracteres");
-            return "Senha precisa ter no mínimo 6 caracteres";
+        const validations = [
+            validateEmail(email),
+            validatePassword(password),
+            validateGender(gender)
+        ];
+
+        if(phoneNumber != null){
+            validations.push(validatePhone(phoneNumber))
         }
 
-        if(!email.includes("@") || !email.includes(".")){
-            showErrorMessage("Digite um email válido");
-            return "Senha precisa ter no mínimo 6 caracteres";
+        const issue = validationsErrorMessage(validations);
+
+        if(issue != ""){
+            showErrorMessage(issue);
         }
 
-        return "";
+        return issue;
     }
 
     async function submit() {
@@ -39,14 +52,19 @@ export function useRegister(){
         }
 
         try {
-            await requestRegister(
-                {
-                    nome : nome,
-                    email : email,
-                    role : "USER",
-                    password : senha
-                }
-            )
+            if(birthday){ // I didn't set a default birthday date, so i needed to check this here
+                await requestRegister(
+                    {
+                        name : name,
+                        email : email,
+                        password : password,
+                        role : UserRoleEnum.USER,
+                        gender: gender,
+                        birthday: birthday,
+                        phoneNumber: phoneNumber
+                    }
+                )
+            }
         } catch {
             setErro("Problema ao registrar usuário");
             showErrorMessage("Problema ao registrar usuário, tente novamente.");
@@ -57,12 +75,18 @@ export function useRegister(){
     }
 
     return {
-        nome,
-        setNome,
+        name,
+        setName,
         email,
         setEmail,
-        senha,
-        setSenha,
+        password,
+        setPassword,
+        gender, 
+        setGender,
+        phoneNumber,
+        setPhoneNumber,
+        birthday,
+        setBirthday,
         erro,
         submit
     };

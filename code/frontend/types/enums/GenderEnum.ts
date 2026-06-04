@@ -5,3 +5,5 @@ enum GenderEnum {
     NOTINFORMED = "NOTINFORMED",  
     UNDEFINED = "UNDEFINED"
 }
+
+export default GenderEnum;

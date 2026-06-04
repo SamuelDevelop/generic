@@ -1,10 +1,14 @@
 import { apiFetch } from "@/services/api"
+import GenderEnum from "@/types/enums/GenderEnum"
 
 export async function requestRegister(data : {
-    nome: string,
+    name: string,
     email: string,
     password: string,
-    role: "USER"
+    role: "USER",
+    gender: GenderEnum
+    birthday: Date
+    phoneNumber: string | null
 }) {
     const response = await apiFetch("/auth/register",
         {
@@ -17,8 +21,11 @@ export async function requestRegister(data : {
             body: JSON.stringify({
                 login: data.email,
                 password: data.password,
-                name: data.nome,
-                role: data.role
+                name: data.name,
+                role: data.role,
+                gender: data.gender,
+                birthday: data.birthday,
+                phoneNumber: data.phoneNumber
             })
         }
     )

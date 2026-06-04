@@ -2,7 +2,7 @@
 import { getMockPosts } from "@/services/mockData";
 import styles from "./FeedSection.module.css"
 import Posts from "../Post/Posts";
-import PostProps from "@/types/PostProps";
+import PostProps from "@/types/props/PostProps";
 import { useEffect, useState } from "react";
 import FeedNavigation from "../FeedNavagation/FeedNavigation";
 

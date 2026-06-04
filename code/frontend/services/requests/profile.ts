@@ -1,7 +1,7 @@
 import { apiFetch } from "@/services/api"
 import { showErrorMessage, showSuccessMessage } from "@/services/utils/mensageHelpers";
 import { getLoggedInUser } from "@/services/requests/user";
-import ProfileType from "@/types/ProfileType";
+import ProfileType from "@/types/props/ProfileType";
 import { getImageMimeType } from "../utils/formatImage";
 
 

@@ -1,4 +1,4 @@
-import OptionProps from "@/types/OptionsProps"
+import OptionProps from "@/types/props/OptionsProps"
 import styles from "./Inputs.module.css"
 
 type SelectInputProps = {

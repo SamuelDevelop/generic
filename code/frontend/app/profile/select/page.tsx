@@ -3,7 +3,7 @@ import Main from "@/components/Main/Main";
 import ProfilesContainer from "@/components/Profile/ProfilesContainer/ProfilesContainer";
 import { useProfile } from "@/hooks/profileContext";
 import { getProfilesByLoggedUser } from "@/services/requests/profile";
-import ProfileType from "@/types/ProfileType";
+import ProfileType from "@/types/props/ProfileType";
 import { useEffect, useState } from "react";
 
 function SelectProfilePage(){

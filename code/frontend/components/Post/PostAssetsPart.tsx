@@ -1,4 +1,4 @@
-import PostProps from "@/types/PostProps";
+import PostProps from "@/types/props/PostProps";
 import styles from "./Post.module.css";
 import { FaRegHeart, FaSailboat, FaShare } from "react-icons/fa6";
 import { FaRegComment } from "react-icons/fa";

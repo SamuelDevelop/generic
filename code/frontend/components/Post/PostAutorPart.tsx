@@ -1,4 +1,4 @@
-import PostProps from "@/types/PostProps";
+import PostProps from "@/types/props/PostProps";
 import styles from "./Post.module.css";
 import Image from "next/image";
 

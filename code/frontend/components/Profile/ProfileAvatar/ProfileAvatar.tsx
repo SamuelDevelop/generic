@@ -1,4 +1,4 @@
-import ProfileType from "@/types/ProfileType";
+import ProfileType from "@/types/props/ProfileType";
 import styles from "./ProfileAvatar.module.css"
 import Image from "next/image";
 
