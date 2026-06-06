@@ -10,7 +10,6 @@ import com.SamuelDevelop.generic.repostories.UserRepository;
 
 @Service
 public class AuthorizationService implements UserDetailsService{
-
     @Autowired
     UserRepository repository;
     

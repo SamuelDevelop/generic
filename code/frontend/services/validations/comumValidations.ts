@@ -2,12 +2,12 @@ import GenderEnum from "@/types/enums/GenderEnum";
 import { sucessValidation, validation } from "./createValidation";
 
 export function validatePassword(password: string, soft: boolean = false) {
-    if (password.length < 6 || (password.length > 64 && soft)) {
+    if (password.length < 8 || (password.length > 64 && soft)) {
         return validation(false, "Dados inválidos");
     }
 
     if (password.length < 8) {
-        return validation(false, "A senha deve possuir 6 caracteres");
+        return validation(false, "A senha deve possuir 8 caracteres");
     }
 
     if (password.length > 100) {

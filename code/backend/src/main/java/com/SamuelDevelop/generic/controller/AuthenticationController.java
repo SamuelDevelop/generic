@@ -80,25 +80,6 @@ public class AuthenticationController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/me")
-    public ResponseEntity<?> me(Authentication authentication){
-        if(authentication == null){
-            return ResponseEntity.status(401).build();
-        }
-
-        User user = (User) authentication.getPrincipal();
-
-        UserResponseDTO userDTO = new UserResponseDTO(
-            user.getLogin(),
-            user.getName(),
-            user.getRole().name(),
-            user.getGender(),
-            user.getBirthday()
-        );
-
-        return ResponseEntity.ok(userDTO);
-    }
-
     @PostMapping("/refresh")
     public ResponseEntity<?> refreshToken(
         @CookieValue(name = "refreshToken", required = false) String refreshToken, 

@@ -1,20 +1,9 @@
-import DateInput from "@/components/Inputs/DateInput";
-import SelectInput from "@/components/Inputs/SelectInput";
 import TextInput from "@/components/Inputs/TextInput";
-import OptionProps from "@/types/props/OptionsProps";
 import { Controller } from "react-hook-form";
 import styles from "./CreateProfile.module.css"
+import TextAreaInput from "@/components/Inputs/TextAreaInput";
 
-function BasicData({ form }: any){
-    const today = new Date().toISOString().slice(0, 10);
-
-    const genders : OptionProps[] = [
-        {text: "Masculino", value: "MALE"},
-        {text: "Feminino", value: "FEMALE"},
-        {text: "Não Binário", value: "NONBINARY"},
-        {text: "Prefiro Não Informar", value: "NOTINFORMED"}
-    ]
-  
+function BasicData({ form }: any){  
     return (
         <section className={styles.basicData}>
             <div className={styles.sideFields}>
@@ -32,7 +21,6 @@ function BasicData({ form }: any){
                     )}
                 />
                 
-                
                 <Controller 
                     control={form.control}
                     name="lastName"  
@@ -46,38 +34,21 @@ function BasicData({ form }: any){
                         />
                     )}           
                 />
-            </div>
+            </div>   
 
-            <div className={styles.sideFields}>
-                <Controller
+            <Controller
                     control={form.control}
-                    name="gender"
-                    defaultValue={"UNDEFINED"}
-                    render={({field}) => (
-                        <SelectInput
-                            options={genders}
-                            textLabel="Gênero"
-                            name="gender"
-                            onChange={field.onChange}
-                            value={field.value}
-                        />
-                    )}
-                />
-
-                <Controller
-                    control={form.control}
-                    name="birthday"
-                    defaultValue={today}
+                    name="description"
                     render={({ field }) => (
-                        <DateInput
-                            labelText="Data de Nascimento:"
+                        <TextAreaInput
+                            labelSide="cima"
+                            labelText="Sua descrição Pessoal"
+                            placeholder="fale dos seus gostos, profissões e sonhos genéricos"
                             value={field.value}
                             onChange={field.onChange}
                         />
                     )}
-                />
-            </div>
-            
+                />          
         </section>
     )
 }

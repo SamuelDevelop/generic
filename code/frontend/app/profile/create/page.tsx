@@ -10,9 +10,6 @@ import { schema } from "@/components/Forms/CreateProfileForm/formSchema"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { requestCreateProfile } from "@/services/requests/profile";
-import { showErrorMessage } from "@/services/utils/mensageHelpers";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { redirectToFeed } from "@/services/utils/redirect";
 import { useRouter } from "next/navigation";
 
 type DadosFormulario = z.infer<typeof schema>
@@ -24,17 +21,10 @@ function CreateProfilePage(){
     async function submit(
         data: DadosFormulario,
     ){
-        if(data.gender === "UNDEFINED"){
-            showErrorMessage("Selecione um genero válido");
-        }
 
         const response = await requestCreateProfile({
             ...data,
-            birthday: new Date(data.birthday),
-            gender: data.gender
         });
-
-        console.log(response);
 
         if(response.ok){
             router.push("/profile/select");
@@ -46,8 +36,6 @@ function CreateProfilePage(){
         defaultValues: {
             firstName: "",
             lastName: "",
-            birthday: "",
-            gender: "MALE",
             description: "",
             nickName: "",
             profileImage: undefined
@@ -65,7 +53,7 @@ function CreateProfilePage(){
     const steps: FormStep<FormData>[] = [
         {
             component: BasicData,
-            fields: ["firstName", "lastName", "birthday", "gender"]
+            fields: ["firstName", "lastName"]
         },
         {
             component: PerfilData,

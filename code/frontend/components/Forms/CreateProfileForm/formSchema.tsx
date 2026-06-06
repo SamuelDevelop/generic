@@ -6,12 +6,6 @@ export const schema = z.object({
   firstName: requiredString,
   lastName: requiredString,
 
-  birthday: z.string()
-            .refine((val) => !isNaN(Date.parse(val)), {
-            message: "Data inválida",
-  }),
-  gender: z.enum(["MALE", "FEMALE", "NONBINARY", "NOTINFORMED", "UNDEFINED"]),
-
   description: z.string(),
   nickName: requiredString,
 

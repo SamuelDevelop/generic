@@ -1,5 +1,4 @@
 import ImageUpload from "@/components/Inputs/ImageInput";
-import TextAreaInput from "@/components/Inputs/TextAreaInput";
 import TextInput from "@/components/Inputs/TextInput";
 import { Controller } from "react-hook-form";
 import styles from "./CreateProfile.module.css"
@@ -20,21 +19,7 @@ function PerfilData({ form }: any){
                         placeholder="@seuNome_BemIrado04"
                     />
                 )}
-            />
-            
-            <Controller
-                control={form.control}
-                name="description"
-                render={({ field }) => (
-                    <TextAreaInput
-                        labelSide="cima"
-                        labelText="Sua descrição Pessoal"
-                        placeholder="fale dos seus gostos, profissões e sonhos genéricos"
-                        value={field.value}
-                        onChange={field.onChange}
-                    />
-                )}
-            />           
+            />         
 
             <label className={styles.imageLabel}>
                 <p>Foto de Perfil (opcional):</p>

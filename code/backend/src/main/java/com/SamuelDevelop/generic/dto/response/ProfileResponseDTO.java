@@ -1,9 +1,9 @@
 package com.SamuelDevelop.generic.dto.response;
 
 public record ProfileResponseDTO(
-    String nickName,
-    String firstName,
-    String lastName,
+    String nickname,
+    String firstname,
+    String lastname,
     String description,
     byte[] profileImage
 ) {}

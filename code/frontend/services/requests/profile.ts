@@ -12,20 +12,22 @@ export async function requestCreateProfile(data : {
     nickName: string,
     profileImage?: File | undefined
 }) {
-    const loggedUser = await getLoggedInUser();
     const formData = new FormData();
 
-    formData.append("userLogin", loggedUser.login);
-    formData.append("nickName", data.nickName);
-    formData.append("firstName", data.firstName);
-    formData.append("lastName", data.lastName);
+    formData.append("nickname", data.nickName);
+    formData.append("firstname", data.firstName);
+    formData.append("lastname", data.lastName);
     formData.append("description", data.description);
 
     if (data.profileImage) {
         formData.append("personalImage", data.profileImage);
     }
+
+    for (const [key, value] of formData.entries()) {
+        console.log(key, value);
+    }
     
-    const response = await apiFetch("/profile/create", {
+    const response = await apiFetch("/profiles/create", {
         method: "POST",
         body: formData
     });
@@ -43,16 +45,13 @@ export async function requestCreateProfile(data : {
 
 export async function getProfilesByLoggedUser() : Promise<ProfileType[]> {
     const profiles : ProfileType[] = [];
-    const owner = await getLoggedInUser();
-    const ownerLogin = owner.login;
-    const response = await apiFetch(`/profile/owner/${ownerLogin}`)
+    const response = await apiFetch(`/profiles/my`);
     
     if(!response.ok){
         return [];
     }
 
     const formData = await response.json();
-    console.log(formData);
 
     formData.forEach((p: any) => {
 
@@ -65,9 +64,9 @@ export async function getProfilesByLoggedUser() : Promise<ProfileType[]> {
         }
 
         const profile: ProfileType = {
-            nickname: p.nickName,
-            firstname: p.firstName,
-            lastname: p.lastName,
+            nickname: p.nickname,
+            firstname: p.firstname,
+            lastname: p.lastname,
             profileImage: profileImage,
             description: p.description
         };

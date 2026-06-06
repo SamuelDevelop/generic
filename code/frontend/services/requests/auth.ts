@@ -10,6 +10,8 @@ export async function requestRegister(data : {
     birthday: Date
     phoneNumber: string | null
 }) {
+    console.log(data);
+
     const response = await apiFetch("/auth/register",
         {
             method: "POST",
@@ -19,7 +21,7 @@ export async function requestRegister(data : {
             },
 
             body: JSON.stringify({
-                login: data.email,
+                email: data.email,
                 password: data.password,
                 name: data.name,
                 role: data.role,
