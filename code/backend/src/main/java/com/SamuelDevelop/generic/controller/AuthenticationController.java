@@ -5,10 +5,8 @@ import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.SamuelDevelop.generic.dto.request.AuthenticationDTO;
 import com.SamuelDevelop.generic.dto.request.RegisterDTO;
-import com.SamuelDevelop.generic.dto.response.UserResponseDTO;
 import com.SamuelDevelop.generic.entity.User;
 import com.SamuelDevelop.generic.repostories.UserRepository;
 import com.SamuelDevelop.generic.service.TokenService;
