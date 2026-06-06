@@ -60,4 +60,18 @@ export async function requestLogin(data : {
     }
 }
 
+export async function logout(){
+    const response = await apiFetch("/auth/logout", {
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({})
+    })
+
+    return response;
+}
+
 

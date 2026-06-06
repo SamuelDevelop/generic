@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { User } from "@/types/UserType";
 import { createContext, useContext, useEffect, useState } from "react";
 import { getLoggedInUser } from "@/services/requests/user";
+import { User } from "@/types/UserType";
 
 type AuthContextType = {
     user: User | null;
@@ -10,50 +10,56 @@ type AuthContextType = {
     loading: boolean;
 
     setUser: (user: User | null) => void;
+    reloadUser: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-export function AuthProvider({children} : { children: React.ReactNode }){
+export function AuthProvider({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
-    async function loadUser() {
-        try{
+    const reloadUser = async () => {
+        setLoading(true);
+
+        try {
             const data = await getLoggedInUser();
             setUser(data);
-        } 
-        catch {
+        } catch {
             setUser(null);
-        }    
-        finally {
+        } finally {
             setLoading(false);
         }
-    }
+    };
 
-    useEffect(()=>{
-        loadUser();
+    useEffect(() => {
+        reloadUser();
     }, []);
 
-    return(
+    return (
         <AuthContext.Provider
             value={{
-                user, 
+                user,
                 logged: !!user,
                 loading,
-                setUser
+                setUser,
+                reloadUser,
             }}
         >
             {children}
         </AuthContext.Provider>
-    )
+    );
 }
 
 export const useAuth = () => {
     const context = useContext(AuthContext);
 
     if (!context) {
-        throw new Error("useAuth should be used within AuthProvider");
+        throw new Error("useAuth must be used within AuthProvider");
     }
 
     return context;

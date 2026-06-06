@@ -6,15 +6,15 @@ import ProfileHeader from "../ProfileHeader/ProfileHeader";
 import Button from "@/components/Button/Button";
 import styles from "./ProfilesContainer.module.css";
 import Icon from "@/components/Icon/Icon";
+import { selectUserProfile } from "@/services/requests/profile";
 
 type props = {
     profiles : ProfileType[]
 }
 
 function ProfilesContainer({profiles} : props){
-    const {setProfile } = useProfile();
     const router = useRouter();
-    console.log(profiles);
+    const { reloadProfile } = useProfile();
     
     if(profiles.length == 0){
         return (
@@ -40,8 +40,9 @@ function ProfilesContainer({profiles} : props){
                             key={index}
                             profile={p}
 
-                            onClick={()=>{
-                                setProfile(p)
+                            onClick={async ()=>{
+                                await selectUserProfile(p);
+                                await reloadProfile();
                                 redirectToFeed(router);
                             }}
                         />

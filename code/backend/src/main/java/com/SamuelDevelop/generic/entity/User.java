@@ -19,6 +19,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
@@ -62,6 +64,10 @@ public class User implements UserDetails{
 
     @Column(name="phoneNumber")
     private String phoneNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "active_profile_id")
+    private Profile activeProfile;
 
     public User(String email, String password, String name, UserRole role, Gender gender, LocalDate birthday, String phoneNumber){
         this.email = email;

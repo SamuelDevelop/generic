@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.SamuelDevelop.generic.dto.response.UserResponseDTO;
 import com.SamuelDevelop.generic.entity.User;
 import com.SamuelDevelop.generic.service.AuthenticatedUserService;
 
@@ -31,7 +32,15 @@ public class UserController {
             ));
         }
 
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(
+            new UserResponseDTO(
+                user.getEmail(),
+                user.getName(),
+                user.getRole(),
+                user.getGender(),
+                user.getBirthday()
+            )
+        );
     }
 
     /*

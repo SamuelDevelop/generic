@@ -1,6 +1,5 @@
 'use client'
 import NavBar from "../NavBar/NavBar";
-import Image from "next/image";
 import styles from "./Header.module.css"
 import { FaSailboat } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
@@ -10,10 +9,17 @@ import ProfileHeader from "../Profile/ProfileHeader/ProfileHeader";
 
 function Header(){
     const router = useRouter();
-    const {user} = useAuth();
-    const { profile } = useProfile();
+    const {
+        user,
+        loading: authLoading,
+    } = useAuth();
 
-    console.log(profile)
+    const {
+        profile,
+        loading: profileLoading,
+    } = useProfile();
+
+    console.log("profile que eu achei: ", profile)
 
     return(
         <header className={styles.header}>
@@ -28,7 +34,11 @@ function Header(){
             <NavBar
                 placeholder="Pesquise algo para começar..."
             />
-            
+            {
+                authLoading || profileLoading &&
+                <p>Loading.....</p>
+            }
+
             {
                 user && profile ?
                 <ProfileHeader 

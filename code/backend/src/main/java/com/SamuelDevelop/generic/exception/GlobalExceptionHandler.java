@@ -49,4 +49,17 @@ public class GlobalExceptionHandler {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body(error);
         }
+
+        @ExceptionHandler(MaxProfilesReachedException.class)
+        public ResponseEntity<ErrorResponseDTO> maxProfilesReachedException(MaxProfilesReachedException ex) {
+
+                ErrorResponseDTO error = new ErrorResponseDTO(
+                        HttpStatus.BAD_REQUEST.value(),
+                        ex.getMessage(),
+                        LocalDateTime.now()
+                );
+
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(error);
+        }
 }

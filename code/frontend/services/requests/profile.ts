@@ -1,6 +1,5 @@
 import { apiFetch } from "@/services/api"
 import { showErrorMessage, showSuccessMessage } from "@/services/utils/mensageHelpers";
-import { getLoggedInUser } from "@/services/requests/user";
 import ProfileType from "@/types/props/ProfileType";
 import { getImageMimeType } from "../utils/formatImage";
 
@@ -45,7 +44,7 @@ export async function requestCreateProfile(data : {
 
 export async function getProfilesByLoggedUser() : Promise<ProfileType[]> {
     const profiles : ProfileType[] = [];
-    const response = await apiFetch(`/profiles/my`);
+    const response = await apiFetch(`/profiles/my/list`);
     
     if(!response.ok){
         return [];
@@ -75,4 +74,17 @@ export async function getProfilesByLoggedUser() : Promise<ProfileType[]> {
     });
 
     return profiles;
+}
+
+export async function selectUserProfile(profile : ProfileType){
+    const response = await apiFetch(`/profiles/my/select/${profile.nickname}`);
+
+    console.log(response);
+    return response;
+}
+
+export async function getSelectedProfile(){
+    const response = await apiFetch(`/profiles/my/selected`);
+
+    return response.json();
 }
