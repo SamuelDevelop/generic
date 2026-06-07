@@ -17,10 +17,13 @@
     align-items: center;
     justify-content: center;
     gap: .4rem;
+    transition: all 100ms ease-in-out;
 }
 
 .button:hover{
     background-color: var(--blueDarkColor);
+    border: 1px solid #53537f;
+    transform: scale(1.05);
 }
 
 .button p{

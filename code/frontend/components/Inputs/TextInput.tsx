@@ -1,5 +1,6 @@
 "use client";
-import styles from "./Inputs.module.css"
+import Input from "./Input/Input";
+import styles from "./Inputs.module.css";
 
 type textInputProps = {
     labelText : string,
@@ -21,14 +22,13 @@ function TextInput({
                             ${labelSide == "lateral" ? `${styles.lateral}` : `${styles.cima}`}
                 `}>
                 <p>{labelText}: </p>
-                <input
+                <Input
                     id={inputId ?? ""}
                     name={inputName ?? ""}
                     value={inputValue ?? ""}
                     onChange={onChange}
                     placeholder={placeholder ?? ""}
-                    className={styles.textInput}
-                ></input>
+                ></Input>
             </div>
             {aviso ? <p className={styles.aviso} >* {aviso}</p> : ""}            
         </label>

@@ -1,0 +1,22 @@
+.input {
+    width: 100%;
+    font-size: 12pt;
+
+    background-color: var(--blueGround);
+    color: white;
+
+    padding: .5rem 2rem .5rem 1rem;
+
+    border: 1px solid #53537f;
+    border-radius: var(--comumBorderRadius);
+    transition: all 150ms ease-in-out;
+}
+
+.input:focus {
+    background-color: rgb(255, 255, 255);
+    color: var(--darkBlue);
+    outline: none;
+    border: 3px solid #53537f;
+
+    transform: scale(1.05);
+}

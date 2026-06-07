@@ -43,7 +43,7 @@ function LoginForm(){
         <form className={styles.form} onSubmit={handleSubmit}>
             <FormFields>
                 <TextInput 
-                    labelText="E-mail"
+                    labelText="Email"
                     labelSide="lateral"
                     placeholder="seu email de login"  
                     inputValue={login}    

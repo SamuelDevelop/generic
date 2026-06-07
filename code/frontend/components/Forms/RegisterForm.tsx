@@ -55,7 +55,7 @@ function RegisterForm(){
         <form className={styles.form} onSubmit={handleSubmit}>
             <FormFields>
                 <TextInput 
-                    labelText="Digite um nome"
+                    labelText="Nome"
                     labelSide="lateral" 
                     placeholder="seu nome e sobrenome"  
                     inputValue={name}
@@ -63,14 +63,14 @@ function RegisterForm(){
                 /> 
 
                 <TextInput 
-                    labelText="Digite seu email"
+                    labelText="Email"
                     placeholder="um e-mail válido ainda não registrado"
                     labelSide="lateral" 
                     inputValue={email}  
                     onChange={(e: any) => setEmail(e.target.value)}      
                 /> 
                 <TextInput 
-                    labelText="Seu Telefone"
+                    labelText="Telefone"
                     placeholder="Formato: (DDD) 11111-1111"
                     labelSide="lateral"  
                     inputValue={phoneNumber ?? ""}

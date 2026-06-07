@@ -6,7 +6,9 @@
     align-items: stretch;
     justify-content: space-between;
 
-    border: 1px solid gray;
+    background-color: var(--blueGround);
+    
+    border: 1px solid var(--grayColor);
     gap: 1rem;
     border-radius: 1rem;
     overflow: hidden;
@@ -28,7 +30,8 @@
 
 .image{
     width: 25rem;
-    height: 25rem;
+    min-height: 25rem;
+    max-height: 60vh;
 
     object-fit: cover
 }
