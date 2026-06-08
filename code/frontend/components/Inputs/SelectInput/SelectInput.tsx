@@ -1,5 +1,6 @@
 import OptionProps from "@/types/props/OptionsProps"
-import styles from "./Inputs.module.css"
+import styles from "./SelectInput.module.css"
+import NoticeInInput from "../NoticeInInput/NoticeInInput"
 
 type SelectInputProps = {
     options: OptionProps[],
@@ -32,8 +33,7 @@ function SelectInput({options, textLabel, name, aviso, onChange, value} : Select
                     )
                 }
             </select>
-
-            {aviso ?? ""}
+            {aviso && <NoticeInInput notice={aviso}/>}
         </label>
     )
 }

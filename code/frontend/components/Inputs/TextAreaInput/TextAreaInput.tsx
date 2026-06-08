@@ -1,4 +1,5 @@
-import styles from "./Inputs.module.css"
+import NoticeInInput from "../NoticeInInput/NoticeInInput"
+import styles from "./TextAreaInput.module.css"
 
 type textAreaInputProps = {
     labelText : string,
@@ -31,7 +32,7 @@ function TextAreaInput({
                     onChange={onChange}
                 ></textarea>
             </div>
-            {aviso ? <p className={styles.aviso} >* {aviso}</p> : ""}            
+            {aviso && <NoticeInInput notice={aviso}/>}            
         </label>
     )
 }

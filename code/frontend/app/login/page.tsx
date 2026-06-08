@@ -1,4 +1,4 @@
-import LoginForm from "@/components/Forms/LoginForm";
+import LoginForm from "@/app/login/LoginForm";
 import Main from "@/components/Main/Main";
 import TwoPartSection from "@/components/TwoPartSection/TwoPartSection";
 

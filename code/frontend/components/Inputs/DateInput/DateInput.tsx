@@ -1,4 +1,4 @@
-import styles from "./Inputs.module.css";
+import styles from "./DateInput.module.css";
 
 type DateInputProps = {
   value: string
@@ -9,7 +9,7 @@ type DateInputProps = {
 export function DateInput({ value, onChange, labelText }: DateInputProps) {
   return (
     <label className={styles.dataLabel}>
-        <p>{labelText}:</p>
+        <p>{labelText}</p>
         <input
           type="date"
           value={value}
@@ -17,7 +17,6 @@ export function DateInput({ value, onChange, labelText }: DateInputProps) {
           className={styles.dateInput}
         />
     </label>
-    
   )
 }
 

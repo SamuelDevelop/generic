@@ -6,7 +6,9 @@ import {
     FaRegHeart,
     FaSailboat,
     FaShare,
-    FaPlus
+    FaPlus,
+    FaRegEye,
+    FaRegEyeSlash
 } from "react-icons/fa6"
 
 import { FiAlertTriangle } from "react-icons/fi"
@@ -22,6 +24,8 @@ type IconProps = {
         | "swirl"
         | "book"
         | "plus"
+        | "eye"
+        | "eyeSlash"
 }
 
 const context = {
@@ -33,7 +37,9 @@ const context = {
     search: <FaSearch />,
     swirl: <AiFillThunderbolt />,
     book: <FaBook />,
-    plus: <FaPlus />
+    plus: <FaPlus />,
+    eye: <FaRegEye />,
+    eyeSlash: <FaRegEyeSlash />
 }
 
 function Icon({ icon }: IconProps) {

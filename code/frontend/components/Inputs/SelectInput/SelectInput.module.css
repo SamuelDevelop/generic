@@ -1,0 +1,36 @@
+.selectLabel{
+    width: 100%;
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: .2rem;
+    padding: .2rem;
+}
+
+.selectInput {
+    border-radius: var(--comumBorderRadius);
+
+    box-sizing: border-box;
+    color: white;
+    background-color: transparent;
+    border: 1px solid gray;
+    padding: .4rem 1rem;
+    cursor: pointer;
+}
+
+.selectInput:hover {
+    background-color: var(--grayColor);
+}
+
+.selectInput:focus{
+    outline: none;
+}
+
+.option {
+  background-color: var(--darkColor);
+  color: white;
+}
+

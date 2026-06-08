@@ -1,7 +1,7 @@
 import TextInput from "@/components/Inputs/TextInput";
 import { Controller } from "react-hook-form";
 import styles from "./CreateProfile.module.css"
-import TextAreaInput from "@/components/Inputs/TextAreaInput";
+import TextAreaInput from "@/components/Inputs/TextAreaInput/TextAreaInput";
 
 function BasicData({ form }: any){  
     return (

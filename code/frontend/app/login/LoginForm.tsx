@@ -1,15 +1,16 @@
 'use client'
 
 import { useLogin } from "@/hooks/userLogin";
-import Button from "../Button/Button";
-import TextInput from "../Inputs/TextInput";
-import FormFields from "./FormFields";
-import styles from "./Forms.module.css"
+import Button from "@/components/Button/Button";
+import TextInput from "@/components/Inputs/TextInput/TextInput";
+import FormFields from "@/components/Forms/FormFields/FormFields";
 import { useRouter } from "next/navigation";
 import { showErrorMessage, showSuccessMessage } from "@/services/utils/mensageHelpers";
 import { useAuth } from "@/hooks/authContext";
 import { getLoggedInUser } from "@/services/requests/user";
 import { redirectAfterLogin } from "@/services/utils/redirect";
+import PasswordInput from "@/components/Inputs/PasswordInput/PasswordInput";
+import Form from "@/components/Forms/Form/Form";
 
 function LoginForm(){
     const router = useRouter();
@@ -40,7 +41,7 @@ function LoginForm(){
     }
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <FormFields>
                 <TextInput 
                     labelText="Email"
@@ -50,7 +51,7 @@ function LoginForm(){
                     onChange={(e : any) => setLogin(e.target.value)}   
                 /> 
 
-                <TextInput 
+                <PasswordInput 
                     labelText="Senha"
                     placeholder="sua senha"
                     labelSide="lateral"  
@@ -60,7 +61,7 @@ function LoginForm(){
             </FormFields>     
 
             <Button type="submit" variant="comum"> Entrar </Button>     
-        </form>
+        </Form>
     )
 }
 

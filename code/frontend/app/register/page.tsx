@@ -1,4 +1,4 @@
-import RegisterForm from "@/components/Forms/RegisterForm";
+import RegisterForm from "@/app/register/RegisterForm";
 import Main from "@/components/Main/Main";
 import TwoPartSection from "@/components/TwoPartSection/TwoPartSection";
 

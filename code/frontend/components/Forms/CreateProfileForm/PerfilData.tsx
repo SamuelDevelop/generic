@@ -1,4 +1,4 @@
-import ImageUpload from "@/components/Inputs/ImageInput";
+import ImageUpload from "@/components/Inputs/ImageInput/ImageInput";
 import TextInput from "@/components/Inputs/TextInput";
 import { Controller } from "react-hook-form";
 import styles from "./CreateProfile.module.css"

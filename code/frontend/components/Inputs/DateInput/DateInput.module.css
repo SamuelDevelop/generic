@@ -1,0 +1,31 @@
+.dataLabel{
+    width: 100%;
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: .2rem;
+    padding: .2rem;
+}
+
+.dateInput{
+    border-radius: var(--comumBorderRadius);
+}
+
+.dateInput:hover{
+    background-color: var(--grayColor);
+}
+
+.dateInput:focus{
+    outline: none;
+}
+
+.dateInput{
+    background-color: transparent;
+    color: white;
+    padding: .4rem 1rem;
+    border: 1px solid gray;
+    cursor: pointer;
+}

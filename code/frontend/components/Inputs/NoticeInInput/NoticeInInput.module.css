@@ -1,0 +1,9 @@
+.notice{
+    font-size: .8rem;
+    opacity: 0.8;
+    transform: all ease-in-out 50ms;
+}
+
+.notice:hover{
+    opacity: 1;
+}

@@ -1,0 +1,41 @@
+.textLabel {
+    width: 100%;
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: .2rem;
+    padding: .2rem;
+}
+
+.textInput {
+    border-radius: var(--comumBorderRadius);
+}
+
+.textInput{
+    box-sizing: border-box;
+    color: white;
+    background-color: transparent;
+    border: 1px solid gray;
+    padding: .5rem 2rem .5rem 1rem;
+    resize: none;
+}
+
+.maintextInputArea{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+}
+
+.lateral{
+    flex-direction: row;
+}
+
+.cima{
+    flex-direction: column;
+    gap: .3rem;
+    align-items: flex-start;
+}

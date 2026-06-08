@@ -4,7 +4,6 @@
 
     background-color: var(--blueGround);
     color: white;
-
     padding: .5rem 2rem .5rem 1rem;
 
     border: 1px solid #53537f;
@@ -14,9 +13,13 @@
 
 .input:focus {
     background-color: rgb(255, 255, 255);
-    color: var(--darkBlue);
+    color: #53537f;
     outline: none;
     border: 3px solid #53537f;
 
     transform: scale(1.05);
+}
+
+.input::placeholder{
+    color: white;
 }

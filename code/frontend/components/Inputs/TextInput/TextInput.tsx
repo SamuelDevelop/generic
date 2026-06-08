@@ -1,6 +1,7 @@
 "use client";
-import Input from "./Input/Input";
-import styles from "./Inputs.module.css";
+import Input from "../Input/Input";
+import NoticeInInput from "../NoticeInInput/NoticeInInput";
+import styles from "./TextInput.module.css";
 
 type textInputProps = {
     labelText : string,
@@ -30,7 +31,7 @@ function TextInput({
                     placeholder={placeholder ?? ""}
                 ></Input>
             </div>
-            {aviso ? <p className={styles.aviso} >* {aviso}</p> : ""}            
+            {aviso && <NoticeInInput notice={aviso}/>}
         </label>
     )
 }
